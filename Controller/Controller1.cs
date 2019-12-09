@@ -21,8 +21,6 @@ namespace Controller
             InitData();
 
             Application.Run(f);
-
-            hideCols();
         }
 
         private void InitData()
@@ -85,6 +83,7 @@ namespace Controller
         private void modifyGridItem(object sender, EventArgs e)
         {
             String grid_table = f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
+            f.dataGrid.CurrentCell = f.dataGrid[0, 0];
             int currentIndex = f.dataGrid.CurrentCell.RowIndex;
             int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
             String attr1 = f.attr1.Text.ToString();

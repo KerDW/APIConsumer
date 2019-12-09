@@ -40,9 +40,9 @@
             this.modify = new System.Windows.Forms.Button();
             this.dataGridEmails = new System.Windows.Forms.DataGridView();
             this.dataGridTelefons = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.searchId = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.nameRB = new System.Windows.Forms.RadioButton();
             this.idRB = new System.Windows.Forms.RadioButton();
@@ -53,11 +53,15 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.cognomLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.searchMail = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTelefons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchId)).BeginInit();
             this.search.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,12 +182,12 @@
             this.dataGridTelefons.Size = new System.Drawing.Size(343, 140);
             this.dataGridTelefons.TabIndex = 12;
             // 
-            // textBox1
+            // searchName
             // 
-            this.textBox1.Location = new System.Drawing.Point(627, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 13;
+            this.searchName.Location = new System.Drawing.Point(627, 21);
+            this.searchName.Name = "searchName";
+            this.searchName.Size = new System.Drawing.Size(100, 20);
+            this.searchName.TabIndex = 13;
             // 
             // label2
             // 
@@ -194,13 +198,13 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Search by name";
             // 
-            // numericUpDown1
+            // searchId
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(627, 61);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown1.TabIndex = 15;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.searchId.Location = new System.Drawing.Point(627, 61);
+            this.searchId.Name = "searchId";
+            this.searchId.Size = new System.Drawing.Size(100, 20);
+            this.searchId.TabIndex = 15;
+            this.searchId.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -211,9 +215,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(624, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Or by ID";
+            this.label3.Text = "Search by ID";
             // 
             // nameRB
             // 
@@ -232,16 +236,17 @@
             this.idRB.Name = "idRB";
             this.idRB.Size = new System.Drawing.Size(14, 13);
             this.idRB.TabIndex = 18;
-            this.idRB.TabStop = true;
             this.idRB.UseVisualStyleBackColor = true;
             // 
             // search
             // 
+            this.search.Controls.Add(this.radioButton2);
+            this.search.Controls.Add(this.radioButton1);
             this.search.Controls.Add(this.nameRB);
             this.search.Controls.Add(this.idRB);
             this.search.Location = new System.Drawing.Point(594, 6);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(27, 75);
+            this.search.Size = new System.Drawing.Size(27, 166);
             this.search.TabIndex = 19;
             this.search.TabStop = false;
             // 
@@ -302,11 +307,45 @@
             this.idLabel.Size = new System.Drawing.Size(0, 18);
             this.idLabel.TabIndex = 26;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 97);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.TabIndex = 19;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(6, 135);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.TabIndex = 20;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // searchMail
+            // 
+            this.searchMail.Location = new System.Drawing.Point(627, 100);
+            this.searchMail.Name = "searchMail";
+            this.searchMail.Size = new System.Drawing.Size(100, 20);
+            this.searchMail.TabIndex = 27;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(627, 138);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 399);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.searchMail);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.cognomLabel);
             this.Controls.Add(this.nameLabel);
@@ -315,9 +354,9 @@
             this.Controls.Add(this.label64);
             this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.searchId);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.searchName);
             this.Controls.Add(this.dataGridTelefons);
             this.Controls.Add(this.dataGridEmails);
             this.Controls.Add(this.modify);
@@ -335,7 +374,7 @@
             this.sorter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTelefons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchId)).EndInit();
             this.search.ResumeLayout(false);
             this.search.PerformLayout();
             this.ResumeLayout(false);
@@ -360,8 +399,8 @@
         public System.Windows.Forms.GroupBox search;
         public System.Windows.Forms.DataGridView dataGridEmails;
         public System.Windows.Forms.DataGridView dataGridTelefons;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.NumericUpDown numericUpDown1;
+        public System.Windows.Forms.TextBox searchName;
+        public System.Windows.Forms.NumericUpDown searchId;
         public System.Windows.Forms.RadioButton nameRB;
         public System.Windows.Forms.RadioButton idRB;
         public System.Windows.Forms.Label label64;
@@ -370,6 +409,10 @@
         public System.Windows.Forms.Label nameLabel;
         public System.Windows.Forms.Label cognomLabel;
         public System.Windows.Forms.Label idLabel;
+        public System.Windows.Forms.RadioButton radioButton2;
+        public System.Windows.Forms.RadioButton radioButton1;
+        public System.Windows.Forms.TextBox searchMail;
+        public System.Windows.Forms.TextBox textBox3;
     }
 }
 
