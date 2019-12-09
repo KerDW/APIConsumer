@@ -30,6 +30,15 @@ namespace Model
 
             return cs;
         }
+
+        public static contacte GetContacteByName(string name)
+        {
+            contacte c = (contacte)MakeRequest(string.Concat(ws1, "contactes/", name), null, "GET", "application/json", typeof(contacte));
+            return c;
+        }
+
+
+
         public static List<telefon> GetTelefons()
         {
             List<telefon> telefons = new List<telefon>();
