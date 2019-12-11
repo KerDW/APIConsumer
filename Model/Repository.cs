@@ -30,13 +30,31 @@ namespace Model
 
             return cs;
         }
-
-        public static contacte GetContacteByName(string name)
+        public static List<contacte> GetContactesTotByName(string nom)
         {
-            contacte c = (contacte)MakeRequest(string.Concat(ws1, "contactes/", name), null, "GET", "application/json", typeof(contacte));
+            
+            List<contacte> cs = (List<contacte>)MakeRequest(string.Concat(ws1, "contactesTot/", nom), null, "GET", "application/json", typeof(List<contacte>));
+
+            return cs;
+        }
+
+        public static List<contacte> GetContactesByName(string name)
+        {
+            List<contacte> c = (List<contacte>)MakeRequest(string.Concat(ws1, "contactes/", name), null, "GET", "application/json", typeof(List<contacte>));
             return c;
         }
 
+        public static List<telefon> GetContactesByPhone(string tlf)
+        {
+            List<telefon> t = (List<telefon>)MakeRequest(string.Concat(ws1, "contactes/", tlf), null, "GET", "application/json", typeof(List<telefon>));
+            return t;
+        }
+
+        public static List<email> GetContactesByEmail(string email)
+        {
+            List<email> e = (List<email>)MakeRequest(string.Concat(ws1, "contactes/", email), null, "GET", "application/json", typeof(List<email>));
+            return e;
+        }
 
 
         public static List<telefon> GetTelefons()
