@@ -100,6 +100,30 @@ namespace Controller
             f.mails.DataSource = null;
         }
 
+        private void insertValues()
+        {
+            int currentIndex = f.dataGrid.CurrentCell.RowIndex;
+            int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+
+            String insertWhich = f.whichInsert.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
+
+            switch (insertWhich)
+            {
+                case "insertContacteRB":
+
+                    break;
+                case "insertTelefonRB":
+
+                    break;
+                case "insertEmailRB":
+
+                    break;
+                default:
+                    Console.WriteLine("error");
+                    break;
+            }
+        }
+
         private void searchContacte(object sender, EventArgs e)
         {
             String searchType = f.search.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;

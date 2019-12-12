@@ -58,7 +58,7 @@
             this.searchNameRB = new System.Windows.Forms.RadioButton();
             this.insert_field_1 = new System.Windows.Forms.TextBox();
             this.insert_field_2 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.whichInsert = new System.Windows.Forms.GroupBox();
             this.insertContacteRB = new System.Windows.Forms.RadioButton();
             this.insertEmailRB = new System.Windows.Forms.RadioButton();
             this.insertTelefonRB = new System.Windows.Forms.RadioButton();
@@ -73,7 +73,7 @@
             this.search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mails)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.whichInsert.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -336,28 +336,28 @@
             // 
             // insert_field_1
             // 
-            this.insert_field_1.Location = new System.Drawing.Point(159, 351);
+            this.insert_field_1.Location = new System.Drawing.Point(246, 354);
             this.insert_field_1.Name = "insert_field_1";
             this.insert_field_1.Size = new System.Drawing.Size(100, 20);
             this.insert_field_1.TabIndex = 39;
             // 
             // insert_field_2
             // 
-            this.insert_field_2.Location = new System.Drawing.Point(265, 351);
+            this.insert_field_2.Location = new System.Drawing.Point(352, 354);
             this.insert_field_2.Name = "insert_field_2";
             this.insert_field_2.Size = new System.Drawing.Size(100, 20);
             this.insert_field_2.TabIndex = 40;
             // 
-            // groupBox1
+            // whichInsert
             // 
-            this.groupBox1.Controls.Add(this.insertContacteRB);
-            this.groupBox1.Controls.Add(this.insertEmailRB);
-            this.groupBox1.Controls.Add(this.insertTelefonRB);
-            this.groupBox1.Location = new System.Drawing.Point(12, 306);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(27, 116);
-            this.groupBox1.TabIndex = 41;
-            this.groupBox1.TabStop = false;
+            this.whichInsert.Controls.Add(this.insertContacteRB);
+            this.whichInsert.Controls.Add(this.insertEmailRB);
+            this.whichInsert.Controls.Add(this.insertTelefonRB);
+            this.whichInsert.Location = new System.Drawing.Point(12, 306);
+            this.whichInsert.Name = "whichInsert";
+            this.whichInsert.Size = new System.Drawing.Size(27, 116);
+            this.whichInsert.TabIndex = 41;
+            this.whichInsert.TabStop = false;
             // 
             // insertContacteRB
             // 
@@ -402,22 +402,22 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(54, 361);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.Size = new System.Drawing.Size(186, 13);
             this.label9.TabIndex = 43;
-            this.label9.Text = "Insert telefon";
+            this.label9.Text = "Insert telefon to the selected contacte";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(54, 400);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 13);
+            this.label10.Size = new System.Drawing.Size(178, 13);
             this.label10.TabIndex = 44;
-            this.label10.Text = "Insert email";
+            this.label10.Text = "Insert email to the selected contacte";
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(399, 351);
+            this.insert.Location = new System.Drawing.Point(246, 389);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(78, 23);
             this.insert.TabIndex = 45;
@@ -427,7 +427,7 @@
             // insert_field_1_label
             // 
             this.insert_field_1_label.AutoSize = true;
-            this.insert_field_1_label.Location = new System.Drawing.Point(156, 335);
+            this.insert_field_1_label.Location = new System.Drawing.Point(243, 338);
             this.insert_field_1_label.Name = "insert_field_1_label";
             this.insert_field_1_label.Size = new System.Drawing.Size(29, 13);
             this.insert_field_1_label.TabIndex = 46;
@@ -436,7 +436,7 @@
             // insert_field_2_label
             // 
             this.insert_field_2_label.AutoSize = true;
-            this.insert_field_2_label.Location = new System.Drawing.Point(265, 335);
+            this.insert_field_2_label.Location = new System.Drawing.Point(352, 338);
             this.insert_field_2_label.Name = "insert_field_2_label";
             this.insert_field_2_label.Size = new System.Drawing.Size(46, 13);
             this.insert_field_2_label.TabIndex = 47;
@@ -453,7 +453,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.whichInsert);
             this.Controls.Add(this.insert_field_2);
             this.Controls.Add(this.insert_field_1);
             this.Controls.Add(this.label8);
@@ -487,8 +487,8 @@
             this.search.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mails)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.whichInsert.ResumeLayout(false);
+            this.whichInsert.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,7 +526,7 @@
         public System.Windows.Forms.RadioButton searchNameRB;
         public System.Windows.Forms.TextBox insert_field_1;
         public System.Windows.Forms.TextBox insert_field_2;
-        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.GroupBox whichInsert;
         public System.Windows.Forms.RadioButton insertContacteRB;
         public System.Windows.Forms.RadioButton insertEmailRB;
         public System.Windows.Forms.RadioButton insertTelefonRB;
