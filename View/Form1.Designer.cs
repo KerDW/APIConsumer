@@ -56,11 +56,24 @@
             this.searchName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.searchNameRB = new System.Windows.Forms.RadioButton();
+            this.insert_field_1 = new System.Windows.Forms.TextBox();
+            this.insert_field_2 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.insertContacteRB = new System.Windows.Forms.RadioButton();
+            this.insertEmailRB = new System.Windows.Forms.RadioButton();
+            this.insertTelefonRB = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.insert = new System.Windows.Forms.Button();
+            this.insert_field_1_label = new System.Windows.Forms.Label();
+            this.insert_field_2_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
             this.search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mails)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -160,7 +173,7 @@
             // 
             // searchNameTot
             // 
-            this.searchNameTot.Location = new System.Drawing.Point(46, 220);
+            this.searchNameTot.Location = new System.Drawing.Point(45, 182);
             this.searchNameTot.Name = "searchNameTot";
             this.searchNameTot.Size = new System.Drawing.Size(100, 20);
             this.searchNameTot.TabIndex = 13;
@@ -168,7 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 204);
+            this.label2.Location = new System.Drawing.Point(45, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 14;
@@ -177,10 +190,12 @@
             // searchNameTotRB
             // 
             this.searchNameTotRB.AutoSize = true;
+            this.searchNameTotRB.Checked = true;
             this.searchNameTotRB.Location = new System.Drawing.Point(6, 55);
             this.searchNameTotRB.Name = "searchNameTotRB";
             this.searchNameTotRB.Size = new System.Drawing.Size(14, 13);
             this.searchNameTotRB.TabIndex = 17;
+            this.searchNameTotRB.TabStop = true;
             this.searchNameTotRB.UseVisualStyleBackColor = true;
             // 
             // search
@@ -189,7 +204,7 @@
             this.search.Controls.Add(this.searchTlfRB);
             this.search.Controls.Add(this.searchMailRB);
             this.search.Controls.Add(this.searchNameTotRB);
-            this.search.Location = new System.Drawing.Point(13, 168);
+            this.search.Location = new System.Drawing.Point(12, 130);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(27, 151);
             this.search.TabIndex = 19;
@@ -215,14 +230,14 @@
             // 
             // searchMail
             // 
-            this.searchMail.Location = new System.Drawing.Point(46, 259);
+            this.searchMail.Location = new System.Drawing.Point(45, 221);
             this.searchMail.Name = "searchMail";
             this.searchMail.Size = new System.Drawing.Size(100, 20);
             this.searchMail.TabIndex = 27;
             // 
             // searchTlf
             // 
-            this.searchTlf.Location = new System.Drawing.Point(46, 297);
+            this.searchTlf.Location = new System.Drawing.Point(45, 259);
             this.searchTlf.Name = "searchTlf";
             this.searchTlf.Size = new System.Drawing.Size(100, 20);
             this.searchTlf.TabIndex = 28;
@@ -230,7 +245,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 243);
+            this.label4.Location = new System.Drawing.Point(42, 205);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 29;
@@ -239,7 +254,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 282);
+            this.label7.Location = new System.Drawing.Point(45, 244);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 30;
@@ -247,7 +262,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(58, 324);
+            this.searchButton.Location = new System.Drawing.Point(57, 286);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 31;
@@ -296,7 +311,7 @@
             // 
             // searchName
             // 
-            this.searchName.Location = new System.Drawing.Point(46, 184);
+            this.searchName.Location = new System.Drawing.Point(45, 146);
             this.searchName.Name = "searchName";
             this.searchName.Size = new System.Drawing.Size(100, 20);
             this.searchName.TabIndex = 37;
@@ -304,7 +319,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(46, 168);
+            this.label8.Location = new System.Drawing.Point(45, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 13);
             this.label8.TabIndex = 38;
@@ -319,11 +334,128 @@
             this.searchNameRB.TabIndex = 22;
             this.searchNameRB.UseVisualStyleBackColor = true;
             // 
+            // insert_field_1
+            // 
+            this.insert_field_1.Location = new System.Drawing.Point(159, 351);
+            this.insert_field_1.Name = "insert_field_1";
+            this.insert_field_1.Size = new System.Drawing.Size(100, 20);
+            this.insert_field_1.TabIndex = 39;
+            // 
+            // insert_field_2
+            // 
+            this.insert_field_2.Location = new System.Drawing.Point(265, 351);
+            this.insert_field_2.Name = "insert_field_2";
+            this.insert_field_2.Size = new System.Drawing.Size(100, 20);
+            this.insert_field_2.TabIndex = 40;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.insertContacteRB);
+            this.groupBox1.Controls.Add(this.insertEmailRB);
+            this.groupBox1.Controls.Add(this.insertTelefonRB);
+            this.groupBox1.Location = new System.Drawing.Point(12, 306);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(27, 116);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            // 
+            // insertContacteRB
+            // 
+            this.insertContacteRB.AutoSize = true;
+            this.insertContacteRB.Checked = true;
+            this.insertContacteRB.Location = new System.Drawing.Point(6, 19);
+            this.insertContacteRB.Name = "insertContacteRB";
+            this.insertContacteRB.Size = new System.Drawing.Size(14, 13);
+            this.insertContacteRB.TabIndex = 22;
+            this.insertContacteRB.TabStop = true;
+            this.insertContacteRB.UseVisualStyleBackColor = true;
+            // 
+            // insertEmailRB
+            // 
+            this.insertEmailRB.AutoSize = true;
+            this.insertEmailRB.Location = new System.Drawing.Point(6, 94);
+            this.insertEmailRB.Name = "insertEmailRB";
+            this.insertEmailRB.Size = new System.Drawing.Size(14, 13);
+            this.insertEmailRB.TabIndex = 19;
+            this.insertEmailRB.UseVisualStyleBackColor = true;
+            // 
+            // insertTelefonRB
+            // 
+            this.insertTelefonRB.AutoSize = true;
+            this.insertTelefonRB.Location = new System.Drawing.Point(6, 55);
+            this.insertTelefonRB.Name = "insertTelefonRB";
+            this.insertTelefonRB.Size = new System.Drawing.Size(14, 13);
+            this.insertTelefonRB.TabIndex = 17;
+            this.insertTelefonRB.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(54, 325);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Insert contacte";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(54, 361);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "Insert telefon";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(54, 400);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 13);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Insert email";
+            // 
+            // insert
+            // 
+            this.insert.Location = new System.Drawing.Point(399, 351);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(78, 23);
+            this.insert.TabIndex = 45;
+            this.insert.Text = "Insert";
+            this.insert.UseVisualStyleBackColor = true;
+            // 
+            // insert_field_1_label
+            // 
+            this.insert_field_1_label.AutoSize = true;
+            this.insert_field_1_label.Location = new System.Drawing.Point(156, 335);
+            this.insert_field_1_label.Name = "insert_field_1_label";
+            this.insert_field_1_label.Size = new System.Drawing.Size(29, 13);
+            this.insert_field_1_label.TabIndex = 46;
+            this.insert_field_1_label.Text = "Nom";
+            // 
+            // insert_field_2_label
+            // 
+            this.insert_field_2_label.AutoSize = true;
+            this.insert_field_2_label.Location = new System.Drawing.Point(265, 335);
+            this.insert_field_2_label.Name = "insert_field_2_label";
+            this.insert_field_2_label.Size = new System.Drawing.Size(46, 13);
+            this.insert_field_2_label.TabIndex = 47;
+            this.insert_field_2_label.Text = "Cognom";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 386);
+            this.ClientSize = new System.Drawing.Size(1020, 424);
+            this.Controls.Add(this.insert_field_2_label);
+            this.Controls.Add(this.insert_field_1_label);
+            this.Controls.Add(this.insert);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.insert_field_2);
+            this.Controls.Add(this.insert_field_1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.searchName);
             this.Controls.Add(this.label6);
@@ -346,7 +478,7 @@
             this.Controls.Add(this.attr1);
             this.Controls.Add(this.dataGrid);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Insert";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.sorter.ResumeLayout(false);
@@ -355,6 +487,8 @@
             this.search.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mails)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,6 +524,18 @@
         public System.Windows.Forms.TextBox searchName;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.RadioButton searchNameRB;
+        public System.Windows.Forms.TextBox insert_field_1;
+        public System.Windows.Forms.TextBox insert_field_2;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.RadioButton insertContacteRB;
+        public System.Windows.Forms.RadioButton insertEmailRB;
+        public System.Windows.Forms.RadioButton insertTelefonRB;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Button insert;
+        public System.Windows.Forms.Label insert_field_1_label;
+        public System.Windows.Forms.Label insert_field_2_label;
     }
 }
 

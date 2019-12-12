@@ -60,12 +60,39 @@ namespace Controller
             f.emailsRB.CheckedChanged += changeTableSource;
             f.contactesRB.CheckedChanged += changeTableSource;
 
+            f.insertContacteRB.CheckedChanged += changeInsertLabelText;
+            f.insertTelefonRB.CheckedChanged += changeInsertLabelText;
+            f.insertEmailRB.CheckedChanged += changeInsertLabelText;
+
             f.searchButton.Click += searchContacte;
 
             f.dataGrid.SelectionChanged += grid_SelectionChanged;
 
             f.remove.Click += removeGridItem;
             f.modify.Click += modifyGridItem;
+        }
+        private void changeInsertLabelText(object sender, EventArgs e)
+        {
+            RadioButton rb = (sender as RadioButton);
+
+            switch (rb.Name)
+            {
+                case "insertContacteRB":
+                    f.insert_field_1_label.Text = "Nom";
+                    f.insert_field_2_label.Text = "Cognom";
+                    break;
+                case "insertTelefonRB":
+                    f.insert_field_1_label.Text = "Telefon";
+                    f.insert_field_2_label.Text = "Tipus";
+                    break;
+                case "insertEmailRB":
+                    f.insert_field_1_label.Text = "Email";
+                    f.insert_field_2_label.Text = "Tipus";
+                    break;
+                default:
+                    Console.WriteLine("error");
+                    break;
+            }
         }
         private void cleanSecondaryGrids()
         {
