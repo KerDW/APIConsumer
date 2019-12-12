@@ -103,11 +103,10 @@ namespace Controller
 
         private void insertValues(object sender, EventArgs e)
         {
-            int currentIndex = f.dataGrid.CurrentCell.RowIndex;
             int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
 
             string field_1 = f.insert_field_1.Text.ToString();
-            string field_2 = f.insert_field_1.Text.ToString();
+            string field_2 = f.insert_field_2.Text.ToString();
 
             String insertWhich = f.whichInsert.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
 
@@ -117,10 +116,10 @@ namespace Controller
                     Repository.InsertContacte(field_1, field_2);
                     break;
                 case "insertTelefonRB":
-
+                    Repository.InsertTelefon(id, field_1, field_2);
                     break;
                 case "insertEmailRB":
-
+                    Repository.InsertEmail(id, field_1, field_2);
                     break;
                 default:
                     Console.WriteLine("error");
