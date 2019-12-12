@@ -1,8 +1,10 @@
 ﻿using Model;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using View;
+using static Model.Model1;
 
 namespace Controller
 {
@@ -30,38 +32,16 @@ namespace Controller
                 f.dataGrid.DataSource = Repository.GetContactesTot();
             }
 
-            if(Repository.GetContacteTot(2) != null)
-            {
-                f.idLabel.Text = Repository.GetContacteTot(2).contacteId.ToString();
-                f.nameLabel.Text = Repository.GetContacteTot(2).nom;
-                f.cognomLabel.Text = Repository.GetContacteTot(2).cognoms;
-
-                if (Repository.GetContacteTot(2).telefons != null)
-                {
-                    f.dataGridTelefons.DataSource = Repository.GetContacteTot(2).telefons.ToList();
-                }
-
-                if (Repository.GetContacteTot(2).emails != null)
-                {
-                    f.dataGridEmails.DataSource = Repository.GetContacteTot(2).emails.ToList();
-                }
-            }
-
             hideCols();
 
         }
 
         private void hideCols()
         {
-            // trycatch because microsoft is basically garbage
             try{
 
                 f.dataGrid.Columns[3].Visible = false;
                 f.dataGrid.Columns[4].Visible = false;
-                f.dataGridEmails.Columns[3].Visible = false;
-                f.dataGridEmails.Columns[4].Visible = false;
-                f.dataGridTelefons.Columns[3].Visible = false;
-                f.dataGridTelefons.Columns[4].Visible = false;
 
             } catch(Exception e)
             {
@@ -75,9 +55,42 @@ namespace Controller
             f.telefonsRB.CheckedChanged += changeTableSource;
             f.emailsRB.CheckedChanged += changeTableSource;
             f.contactesRB.CheckedChanged += changeTableSource;
+
+            f.searchButton.Click += searchContacte;
+
             f.dataGrid.SelectionChanged += grid_SelectionChanged;
+
             f.remove.Click += removeGridItem;
             f.modify.Click += modifyGridItem;
+        }
+
+        private void searchContacte(object sender, EventArgs e)
+        {
+            String searchType = f.search.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
+
+            string name = f.searchName.Text.ToString();
+            string email = f.searchMail.Text.ToString();
+            string tlf = f.searchTlf.Text.ToString();
+
+            switch (searchType)
+            {
+                case "searchNameRB":
+                        f.dataGrid.DataSource = Repository.GetContactesTotByName(name);
+                        hideCols();
+                    break;
+                case "searchMailRB":
+                        f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
+                        hideCols();
+                    break;
+                case "searchTlfRB":
+                        f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
+                    break;
+                case "noFilter":
+                    break;
+                default:
+                    Console.WriteLine("error");
+                    break;
+            }
         }
 
         private void modifyGridItem(object sender, EventArgs e)

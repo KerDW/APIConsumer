@@ -44,15 +44,43 @@ namespace Model
             return c;
         }
 
-        public static List<telefon> GetContactesByPhone(string tlf)
+        public static List<contacte> GetContactesByPhone(string tlf)
         {
-            List<telefon> t = (List<telefon>)MakeRequest(string.Concat(ws1, "contactes/", tlf), null, "GET", "application/json", typeof(List<telefon>));
+            List<contacte> c = new List<contacte>();
+
+            List<telefon> t = (List<telefon>)MakeRequest(string.Concat(ws1, "telefonC/", tlf), null, "GET", "application/json", typeof(List<telefon>));
+
+            foreach (telefon tel in t)
+            {
+                c.Add(tel.contacte);
+            }
+
+            return c;
+        }
+        public static List<telefon> GetPhonesByPhone(string tlf)
+        {
+            List<telefon> t = (List<telefon>)MakeRequest(string.Concat(ws1, "telefonC/", tlf), null, "GET", "application/json", typeof(List<telefon>));
+
             return t;
         }
 
-        public static List<email> GetContactesByEmail(string email)
+        public static List<contacte> GetContactesByEmail(string email)
         {
-            List<email> e = (List<email>)MakeRequest(string.Concat(ws1, "contactes/", email), null, "GET", "application/json", typeof(List<email>));
+            List<contacte> c = new List<contacte>();
+
+            List<email> e = (List<email>)MakeRequest(string.Concat(ws1, "emailC/", email), null, "GET", "application/json", typeof(List<email>));
+
+            foreach (email em in e)
+            {
+                c.Add(em.contacte);
+            }
+
+            return c;
+        }
+        public static List<email> GetEmailsByEmail(string email)
+        {
+            List<email> e = (List<email>)MakeRequest(string.Concat(ws1, "emailC/", email), null, "GET", "application/json", typeof(List<email>));
+
             return e;
         }
 

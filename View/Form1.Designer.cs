@@ -38,41 +38,36 @@
             this.remove = new System.Windows.Forms.Button();
             this.sorter = new System.Windows.Forms.GroupBox();
             this.modify = new System.Windows.Forms.Button();
-            this.dataGridEmails = new System.Windows.Forms.DataGridView();
-            this.dataGridTelefons = new System.Windows.Forms.DataGridView();
             this.searchName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.searchNameRB = new System.Windows.Forms.RadioButton();
             this.search = new System.Windows.Forms.GroupBox();
             this.searchTlfRB = new System.Windows.Forms.RadioButton();
             this.searchMailRB = new System.Windows.Forms.RadioButton();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.searchMail = new System.Windows.Forms.TextBox();
             this.searchTlf = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
-            this.idField = new System.Windows.Forms.TextBox();
-            this.nameField = new System.Windows.Forms.TextBox();
-            this.surnameField = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.noFilter = new System.Windows.Forms.RadioButton();
+            this.phonesOrMails = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTelefons)).BeginInit();
             this.search.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phonesOrMails)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid
             // 
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(110, 12);
+            this.dataGrid.Location = new System.Drawing.Point(159, 12);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(343, 317);
+            this.dataGrid.Size = new System.Drawing.Size(346, 317);
             this.dataGrid.TabIndex = 0;
             // 
             // contactesRB
@@ -109,31 +104,31 @@
             // 
             // attr1
             // 
-            this.attr1.Location = new System.Drawing.Point(463, 12);
+            this.attr1.Location = new System.Drawing.Point(525, 12);
             this.attr1.Name = "attr1";
-            this.attr1.Size = new System.Drawing.Size(100, 20);
+            this.attr1.Size = new System.Drawing.Size(103, 20);
             this.attr1.TabIndex = 4;
             // 
             // attr2
             // 
-            this.attr2.Location = new System.Drawing.Point(463, 38);
+            this.attr2.Location = new System.Drawing.Point(525, 38);
             this.attr2.Name = "attr2";
-            this.attr2.Size = new System.Drawing.Size(100, 20);
+            this.attr2.Size = new System.Drawing.Size(103, 20);
             this.attr2.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(370, 12);
+            this.label1.Location = new System.Drawing.Point(396, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 6;
             // 
             // remove
             // 
-            this.remove.Location = new System.Drawing.Point(459, 306);
+            this.remove.Location = new System.Drawing.Point(521, 306);
             this.remove.Name = "remove";
-            this.remove.Size = new System.Drawing.Size(75, 23);
+            this.remove.Size = new System.Drawing.Size(78, 23);
             this.remove.TabIndex = 7;
             this.remove.Text = "Remove";
             this.remove.UseVisualStyleBackColor = true;
@@ -152,38 +147,16 @@
             // 
             // modify
             // 
-            this.modify.Location = new System.Drawing.Point(459, 277);
+            this.modify.Location = new System.Drawing.Point(521, 277);
             this.modify.Name = "modify";
-            this.modify.Size = new System.Drawing.Size(75, 23);
+            this.modify.Size = new System.Drawing.Size(78, 23);
             this.modify.TabIndex = 9;
             this.modify.Text = "Modify";
             this.modify.UseVisualStyleBackColor = true;
             // 
-            // dataGridEmails
-            // 
-            this.dataGridEmails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEmails.Location = new System.Drawing.Point(737, 244);
-            this.dataGridEmails.MultiSelect = false;
-            this.dataGridEmails.Name = "dataGridEmails";
-            this.dataGridEmails.ReadOnly = true;
-            this.dataGridEmails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridEmails.Size = new System.Drawing.Size(343, 134);
-            this.dataGridEmails.TabIndex = 11;
-            // 
-            // dataGridTelefons
-            // 
-            this.dataGridTelefons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTelefons.Location = new System.Drawing.Point(737, 98);
-            this.dataGridTelefons.MultiSelect = false;
-            this.dataGridTelefons.Name = "dataGridTelefons";
-            this.dataGridTelefons.ReadOnly = true;
-            this.dataGridTelefons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTelefons.Size = new System.Drawing.Size(343, 140);
-            this.dataGridTelefons.TabIndex = 12;
-            // 
             // searchName
             // 
-            this.searchName.Location = new System.Drawing.Point(626, 47);
+            this.searchName.Location = new System.Drawing.Point(46, 188);
             this.searchName.Name = "searchName";
             this.searchName.Size = new System.Drawing.Size(100, 20);
             this.searchName.TabIndex = 13;
@@ -191,7 +164,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(623, 31);
+            this.label2.Location = new System.Drawing.Point(43, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 14;
@@ -200,29 +173,28 @@
             // searchNameRB
             // 
             this.searchNameRB.AutoSize = true;
-            this.searchNameRB.Checked = true;
-            this.searchNameRB.Location = new System.Drawing.Point(6, 19);
+            this.searchNameRB.Location = new System.Drawing.Point(6, 55);
             this.searchNameRB.Name = "searchNameRB";
             this.searchNameRB.Size = new System.Drawing.Size(14, 13);
             this.searchNameRB.TabIndex = 17;
-            this.searchNameRB.TabStop = true;
             this.searchNameRB.UseVisualStyleBackColor = true;
             // 
             // search
             // 
+            this.search.Controls.Add(this.noFilter);
             this.search.Controls.Add(this.searchTlfRB);
             this.search.Controls.Add(this.searchMailRB);
             this.search.Controls.Add(this.searchNameRB);
-            this.search.Location = new System.Drawing.Point(593, 32);
+            this.search.Location = new System.Drawing.Point(13, 133);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(27, 121);
+            this.search.Size = new System.Drawing.Size(27, 161);
             this.search.TabIndex = 19;
             this.search.TabStop = false;
             // 
             // searchTlfRB
             // 
             this.searchTlfRB.AutoSize = true;
-            this.searchTlfRB.Location = new System.Drawing.Point(7, 94);
+            this.searchTlfRB.Location = new System.Drawing.Point(7, 133);
             this.searchTlfRB.Name = "searchTlfRB";
             this.searchTlfRB.Size = new System.Drawing.Size(14, 13);
             this.searchTlfRB.TabIndex = 20;
@@ -231,52 +203,22 @@
             // searchMailRB
             // 
             this.searchMailRB.AutoSize = true;
-            this.searchMailRB.Location = new System.Drawing.Point(7, 58);
+            this.searchMailRB.Location = new System.Drawing.Point(7, 95);
             this.searchMailRB.Name = "searchMailRB";
             this.searchMailRB.Size = new System.Drawing.Size(14, 13);
             this.searchMailRB.TabIndex = 19;
             this.searchMailRB.UseVisualStyleBackColor = true;
             // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(749, 33);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(19, 18);
-            this.label64.TabIndex = 20;
-            this.label64.Text = "id";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(809, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 18);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "nom";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(939, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 18);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "cognoms";
-            // 
             // searchMail
             // 
-            this.searchMail.Location = new System.Drawing.Point(626, 87);
+            this.searchMail.Location = new System.Drawing.Point(46, 228);
             this.searchMail.Name = "searchMail";
             this.searchMail.Size = new System.Drawing.Size(100, 20);
             this.searchMail.TabIndex = 27;
             // 
             // searchTlf
             // 
-            this.searchTlf.Location = new System.Drawing.Point(626, 125);
+            this.searchTlf.Location = new System.Drawing.Point(46, 266);
             this.searchTlf.Name = "searchTlf";
             this.searchTlf.Size = new System.Drawing.Size(100, 20);
             this.searchTlf.TabIndex = 28;
@@ -284,7 +226,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(623, 71);
+            this.label4.Location = new System.Drawing.Point(43, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 29;
@@ -293,7 +235,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(623, 109);
+            this.label7.Location = new System.Drawing.Point(43, 250);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 30;
@@ -301,58 +243,66 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(638, 162);
+            this.searchButton.Location = new System.Drawing.Point(58, 303);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 31;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             // 
-            // idField
+            // label3
             // 
-            this.idField.Location = new System.Drawing.Point(752, 61);
-            this.idField.Name = "idField";
-            this.idField.ReadOnly = true;
-            this.idField.Size = new System.Drawing.Size(38, 20);
-            this.idField.TabIndex = 32;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "No filter";
             // 
-            // nameField
+            // noFilter
             // 
-            this.nameField.Location = new System.Drawing.Point(812, 61);
-            this.nameField.Name = "nameField";
-            this.nameField.ReadOnly = true;
-            this.nameField.Size = new System.Drawing.Size(86, 20);
-            this.nameField.TabIndex = 33;
+            this.noFilter.AutoSize = true;
+            this.noFilter.Checked = true;
+            this.noFilter.Location = new System.Drawing.Point(6, 19);
+            this.noFilter.Name = "noFilter";
+            this.noFilter.Size = new System.Drawing.Size(14, 13);
+            this.noFilter.TabIndex = 21;
+            this.noFilter.TabStop = true;
+            this.noFilter.UseVisualStyleBackColor = true;
             // 
-            // surnameField
+            // phonesOrMails
             // 
-            this.surnameField.Location = new System.Drawing.Point(942, 61);
-            this.surnameField.Name = "surnameField";
-            this.surnameField.ReadOnly = true;
-            this.surnameField.Size = new System.Drawing.Size(138, 20);
-            this.surnameField.TabIndex = 34;
+            this.phonesOrMails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.phonesOrMails.Location = new System.Drawing.Point(635, 50);
+            this.phonesOrMails.Name = "phonesOrMails";
+            this.phonesOrMails.Size = new System.Drawing.Size(258, 279);
+            this.phonesOrMails.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(634, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Phones/Emails";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 399);
-            this.Controls.Add(this.surnameField);
-            this.Controls.Add(this.nameField);
-            this.Controls.Add(this.idField);
+            this.ClientSize = new System.Drawing.Size(917, 386);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.phonesOrMails);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.searchTlf);
             this.Controls.Add(this.searchMail);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label64);
             this.Controls.Add(this.search);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.searchName);
-            this.Controls.Add(this.dataGridTelefons);
-            this.Controls.Add(this.dataGridEmails);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.sorter);
             this.Controls.Add(this.remove);
@@ -366,10 +316,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.sorter.ResumeLayout(false);
             this.sorter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTelefons)).EndInit();
             this.search.ResumeLayout(false);
             this.search.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phonesOrMails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,23 +338,19 @@
         public System.Windows.Forms.Button modify;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.GroupBox search;
-        public System.Windows.Forms.DataGridView dataGridEmails;
-        public System.Windows.Forms.DataGridView dataGridTelefons;
         public System.Windows.Forms.TextBox searchName;
         public System.Windows.Forms.RadioButton searchNameRB;
-        public System.Windows.Forms.Label label64;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label6;
         public System.Windows.Forms.RadioButton searchTlfRB;
         public System.Windows.Forms.RadioButton searchMailRB;
         public System.Windows.Forms.TextBox searchMail;
         public System.Windows.Forms.TextBox searchTlf;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox idField;
-        private System.Windows.Forms.TextBox nameField;
-        private System.Windows.Forms.TextBox surnameField;
+        public System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.RadioButton noFilter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView phonesOrMails;
+        private System.Windows.Forms.Label label5;
     }
 }
 
