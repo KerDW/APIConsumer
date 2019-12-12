@@ -42,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchNameTotRB = new System.Windows.Forms.RadioButton();
             this.search = new System.Windows.Forms.GroupBox();
-            this.noFilter = new System.Windows.Forms.RadioButton();
             this.searchTlfRB = new System.Windows.Forms.RadioButton();
             this.searchMailRB = new System.Windows.Forms.RadioButton();
             this.searchMail = new System.Windows.Forms.TextBox();
@@ -50,7 +49,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.phones = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.mails = new System.Windows.Forms.DataGridView();
@@ -179,7 +177,7 @@
             // searchNameTotRB
             // 
             this.searchNameTotRB.AutoSize = true;
-            this.searchNameTotRB.Location = new System.Drawing.Point(6, 90);
+            this.searchNameTotRB.Location = new System.Drawing.Point(6, 55);
             this.searchNameTotRB.Name = "searchNameTotRB";
             this.searchNameTotRB.Size = new System.Drawing.Size(14, 13);
             this.searchNameTotRB.TabIndex = 17;
@@ -188,31 +186,19 @@
             // search
             // 
             this.search.Controls.Add(this.searchNameRB);
-            this.search.Controls.Add(this.noFilter);
             this.search.Controls.Add(this.searchTlfRB);
             this.search.Controls.Add(this.searchMailRB);
             this.search.Controls.Add(this.searchNameTotRB);
-            this.search.Location = new System.Drawing.Point(13, 133);
+            this.search.Location = new System.Drawing.Point(13, 168);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(27, 186);
+            this.search.Size = new System.Drawing.Size(27, 151);
             this.search.TabIndex = 19;
             this.search.TabStop = false;
-            // 
-            // noFilter
-            // 
-            this.noFilter.AutoSize = true;
-            this.noFilter.Checked = true;
-            this.noFilter.Location = new System.Drawing.Point(6, 19);
-            this.noFilter.Name = "noFilter";
-            this.noFilter.Size = new System.Drawing.Size(14, 13);
-            this.noFilter.TabIndex = 21;
-            this.noFilter.TabStop = true;
-            this.noFilter.UseVisualStyleBackColor = true;
             // 
             // searchTlfRB
             // 
             this.searchTlfRB.AutoSize = true;
-            this.searchTlfRB.Location = new System.Drawing.Point(7, 167);
+            this.searchTlfRB.Location = new System.Drawing.Point(6, 131);
             this.searchTlfRB.Name = "searchTlfRB";
             this.searchTlfRB.Size = new System.Drawing.Size(14, 13);
             this.searchTlfRB.TabIndex = 20;
@@ -221,7 +207,7 @@
             // searchMailRB
             // 
             this.searchMailRB.AutoSize = true;
-            this.searchMailRB.Location = new System.Drawing.Point(7, 129);
+            this.searchMailRB.Location = new System.Drawing.Point(6, 94);
             this.searchMailRB.Name = "searchMailRB";
             this.searchMailRB.Size = new System.Drawing.Size(14, 13);
             this.searchMailRB.TabIndex = 19;
@@ -268,19 +254,10 @@
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 152);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "No filter";
-            // 
             // phones
             // 
             this.phones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.phones.Location = new System.Drawing.Point(635, 50);
+            this.phones.Location = new System.Drawing.Point(634, 31);
             this.phones.MultiSelect = false;
             this.phones.Name = "phones";
             this.phones.ReadOnly = true;
@@ -291,7 +268,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(634, 31);
+            this.label5.Location = new System.Drawing.Point(633, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 34;
@@ -300,7 +277,7 @@
             // mails
             // 
             this.mails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mails.Location = new System.Drawing.Point(635, 212);
+            this.mails.Location = new System.Drawing.Point(634, 193);
             this.mails.MultiSelect = false;
             this.mails.Name = "mails";
             this.mails.ReadOnly = true;
@@ -311,7 +288,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(634, 191);
+            this.label6.Location = new System.Drawing.Point(633, 172);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 36;
@@ -336,7 +313,7 @@
             // searchNameRB
             // 
             this.searchNameRB.AutoSize = true;
-            this.searchNameRB.Location = new System.Drawing.Point(6, 54);
+            this.searchNameRB.Location = new System.Drawing.Point(6, 19);
             this.searchNameRB.Name = "searchNameRB";
             this.searchNameRB.Size = new System.Drawing.Size(14, 13);
             this.searchNameRB.TabIndex = 22;
@@ -353,7 +330,6 @@
             this.Controls.Add(this.mails);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.phones);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
@@ -407,8 +383,6 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button searchButton;
-        public System.Windows.Forms.RadioButton noFilter;
-        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.DataGridView phones;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.DataGridView mails;

@@ -126,8 +126,6 @@ namespace Controller
                     f.phones.DataSource = Repository.GetPhonesByPhone(tlf);
                     hideCols();
                     break;
-                case "noFilter":
-                    break;
                 default:
                     Console.WriteLine("error");
                     break;
