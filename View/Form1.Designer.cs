@@ -65,7 +65,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.insert = new System.Windows.Forms.Button();
+            this.insertButton = new System.Windows.Forms.Button();
             this.insert_field_1_label = new System.Windows.Forms.Label();
             this.insert_field_2_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -415,14 +415,14 @@
             this.label10.TabIndex = 44;
             this.label10.Text = "Insert email to the selected contacte";
             // 
-            // insert
+            // insertButton
             // 
-            this.insert.Location = new System.Drawing.Point(246, 389);
-            this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(78, 23);
-            this.insert.TabIndex = 45;
-            this.insert.Text = "Insert";
-            this.insert.UseVisualStyleBackColor = true;
+            this.insertButton.Location = new System.Drawing.Point(246, 389);
+            this.insertButton.Name = "insertButton";
+            this.insertButton.Size = new System.Drawing.Size(78, 23);
+            this.insertButton.TabIndex = 45;
+            this.insertButton.Text = "Insert";
+            this.insertButton.UseVisualStyleBackColor = true;
             // 
             // insert_field_1_label
             // 
@@ -438,9 +438,9 @@
             this.insert_field_2_label.AutoSize = true;
             this.insert_field_2_label.Location = new System.Drawing.Point(352, 338);
             this.insert_field_2_label.Name = "insert_field_2_label";
-            this.insert_field_2_label.Size = new System.Drawing.Size(46, 13);
+            this.insert_field_2_label.Size = new System.Drawing.Size(51, 13);
             this.insert_field_2_label.TabIndex = 47;
-            this.insert_field_2_label.Text = "Cognom";
+            this.insert_field_2_label.Text = "Cognoms";
             // 
             // Form1
             // 
@@ -449,7 +449,7 @@
             this.ClientSize = new System.Drawing.Size(1020, 424);
             this.Controls.Add(this.insert_field_2_label);
             this.Controls.Add(this.insert_field_1_label);
-            this.Controls.Add(this.insert);
+            this.Controls.Add(this.insertButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
@@ -533,7 +533,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.Button insert;
+        public System.Windows.Forms.Button insertButton;
         public System.Windows.Forms.Label insert_field_1_label;
         public System.Windows.Forms.Label insert_field_2_label;
     }

@@ -160,6 +160,39 @@ namespace Model
             MakeRequest(string.Concat(ws1, "email/", id), jsonObject, "PUT", "application/json", typeof(email));
         }
 
+        public static void InsertContacte(string name, string surname)
+        {
+            JObject jsonObject = new JObject
+            {
+                ["nom"] = name,
+                ["cognoms"] = surname,
+            };
+
+            MakeRequest(string.Concat(ws1, "contacte"), jsonObject, "POST", "application/json", typeof(contacte));
+        }
+        public static void InsertEmail(int cId, string email, string type)
+        {
+            JObject jsonObject = new JObject
+            {
+                ["contacteId"] = cId,
+                ["email1"] = email,
+                ["tipus"] = type,
+            };
+
+            MakeRequest(string.Concat(ws1, "email"), jsonObject, "POST", "application/json", typeof(email));
+        }
+        public static void InsertTelefon(int cId, string tlf, string type)
+        {
+            JObject jsonObject = new JObject
+            {
+                ["contacteId"] = cId,
+                ["telefon1"] = tlf,
+                ["tipus"] = type,
+            };
+
+            MakeRequest(string.Concat(ws1, "telefon"), jsonObject, "POST", "application/json", typeof(telefon));
+        }
+
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada
         //  JSONrequest: objecte que se li passa en el body (només per a POST/PUT)
