@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchNameRB = new System.Windows.Forms.RadioButton();
             this.search = new System.Windows.Forms.GroupBox();
+            this.noFilter = new System.Windows.Forms.RadioButton();
             this.searchTlfRB = new System.Windows.Forms.RadioButton();
             this.searchMailRB = new System.Windows.Forms.RadioButton();
             this.searchMail = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.noFilter = new System.Windows.Forms.RadioButton();
             this.phonesOrMails = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -191,6 +191,17 @@
             this.search.TabIndex = 19;
             this.search.TabStop = false;
             // 
+            // noFilter
+            // 
+            this.noFilter.AutoSize = true;
+            this.noFilter.Checked = true;
+            this.noFilter.Location = new System.Drawing.Point(6, 19);
+            this.noFilter.Name = "noFilter";
+            this.noFilter.Size = new System.Drawing.Size(14, 13);
+            this.noFilter.TabIndex = 21;
+            this.noFilter.TabStop = true;
+            this.noFilter.UseVisualStyleBackColor = true;
+            // 
             // searchTlfRB
             // 
             this.searchTlfRB.AutoSize = true;
@@ -259,23 +270,12 @@
             this.label3.TabIndex = 32;
             this.label3.Text = "No filter";
             // 
-            // noFilter
-            // 
-            this.noFilter.AutoSize = true;
-            this.noFilter.Checked = true;
-            this.noFilter.Location = new System.Drawing.Point(6, 19);
-            this.noFilter.Name = "noFilter";
-            this.noFilter.Size = new System.Drawing.Size(14, 13);
-            this.noFilter.TabIndex = 21;
-            this.noFilter.TabStop = true;
-            this.noFilter.UseVisualStyleBackColor = true;
-            // 
             // phonesOrMails
             // 
             this.phonesOrMails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.phonesOrMails.Location = new System.Drawing.Point(635, 50);
             this.phonesOrMails.Name = "phonesOrMails";
-            this.phonesOrMails.Size = new System.Drawing.Size(258, 279);
+            this.phonesOrMails.Size = new System.Drawing.Size(373, 279);
             this.phonesOrMails.TabIndex = 33;
             // 
             // label5
@@ -291,7 +291,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 386);
+            this.ClientSize = new System.Drawing.Size(1020, 386);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.phonesOrMails);
             this.Controls.Add(this.label3);
@@ -347,10 +347,10 @@
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.RadioButton noFilter;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView phonesOrMails;
-        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.RadioButton noFilter;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.DataGridView phonesOrMails;
+        public System.Windows.Forms.Label label5;
     }
 }
 

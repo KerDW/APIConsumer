@@ -42,6 +42,8 @@ namespace Controller
 
                 f.dataGrid.Columns[3].Visible = false;
                 f.dataGrid.Columns[4].Visible = false;
+                f.phonesOrMails.Columns[3].Visible = false;
+                f.phonesOrMails.Columns[4].Visible = false;
 
             } catch(Exception e)
             {
@@ -75,15 +77,18 @@ namespace Controller
             switch (searchType)
             {
                 case "searchNameRB":
-                        f.dataGrid.DataSource = Repository.GetContactesTotByName(name);
-                        hideCols();
+                    f.dataGrid.DataSource = Repository.GetContactesTotByName(name);
+                    hideCols();
                     break;
                 case "searchMailRB":
-                        f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
-                        hideCols();
+                    f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
+                    f.phonesOrMails.DataSource = Repository.GetEmailsByEmail(email);
+                    hideCols();
                     break;
                 case "searchTlfRB":
-                        f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
+                    f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
+                    f.phonesOrMails.DataSource = Repository.GetPhonesByPhone(tlf);
+                    hideCols();
                     break;
                 case "noFilter":
                     break;
