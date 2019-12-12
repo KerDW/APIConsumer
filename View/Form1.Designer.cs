@@ -42,17 +42,21 @@
             this.dataGridTelefons = new System.Windows.Forms.DataGridView();
             this.searchName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.nameRB = new System.Windows.Forms.RadioButton();
+            this.searchNameRB = new System.Windows.Forms.RadioButton();
             this.search = new System.Windows.Forms.GroupBox();
+            this.searchTlfRB = new System.Windows.Forms.RadioButton();
+            this.searchMailRB = new System.Windows.Forms.RadioButton();
             this.label64 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.searchMail = new System.Windows.Forms.TextBox();
             this.searchTlf = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.idField = new System.Windows.Forms.TextBox();
+            this.nameField = new System.Windows.Forms.TextBox();
+            this.surnameField = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmails)).BeginInit();
@@ -179,7 +183,7 @@
             // 
             // searchName
             // 
-            this.searchName.Location = new System.Drawing.Point(627, 21);
+            this.searchName.Location = new System.Drawing.Point(626, 47);
             this.searchName.Name = "searchName";
             this.searchName.Size = new System.Drawing.Size(100, 20);
             this.searchName.TabIndex = 13;
@@ -187,33 +191,51 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(624, 5);
+            this.label2.Location = new System.Drawing.Point(623, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 14;
             this.label2.Text = "Search by name";
             // 
-            // nameRB
+            // searchNameRB
             // 
-            this.nameRB.AutoSize = true;
-            this.nameRB.Checked = true;
-            this.nameRB.Location = new System.Drawing.Point(6, 19);
-            this.nameRB.Name = "nameRB";
-            this.nameRB.Size = new System.Drawing.Size(14, 13);
-            this.nameRB.TabIndex = 17;
-            this.nameRB.TabStop = true;
-            this.nameRB.UseVisualStyleBackColor = true;
+            this.searchNameRB.AutoSize = true;
+            this.searchNameRB.Checked = true;
+            this.searchNameRB.Location = new System.Drawing.Point(6, 19);
+            this.searchNameRB.Name = "searchNameRB";
+            this.searchNameRB.Size = new System.Drawing.Size(14, 13);
+            this.searchNameRB.TabIndex = 17;
+            this.searchNameRB.TabStop = true;
+            this.searchNameRB.UseVisualStyleBackColor = true;
             // 
             // search
             // 
-            this.search.Controls.Add(this.radioButton2);
-            this.search.Controls.Add(this.radioButton1);
-            this.search.Controls.Add(this.nameRB);
-            this.search.Location = new System.Drawing.Point(594, 6);
+            this.search.Controls.Add(this.searchTlfRB);
+            this.search.Controls.Add(this.searchMailRB);
+            this.search.Controls.Add(this.searchNameRB);
+            this.search.Location = new System.Drawing.Point(593, 32);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(27, 121);
             this.search.TabIndex = 19;
             this.search.TabStop = false;
+            // 
+            // searchTlfRB
+            // 
+            this.searchTlfRB.AutoSize = true;
+            this.searchTlfRB.Location = new System.Drawing.Point(7, 94);
+            this.searchTlfRB.Name = "searchTlfRB";
+            this.searchTlfRB.Size = new System.Drawing.Size(14, 13);
+            this.searchTlfRB.TabIndex = 20;
+            this.searchTlfRB.UseVisualStyleBackColor = true;
+            // 
+            // searchMailRB
+            // 
+            this.searchMailRB.AutoSize = true;
+            this.searchMailRB.Location = new System.Drawing.Point(7, 58);
+            this.searchMailRB.Name = "searchMailRB";
+            this.searchMailRB.Size = new System.Drawing.Size(14, 13);
+            this.searchMailRB.TabIndex = 19;
+            this.searchMailRB.UseVisualStyleBackColor = true;
             // 
             // label64
             // 
@@ -245,34 +267,16 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "cognoms";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 58);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 19;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 94);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 20;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // searchMail
             // 
-            this.searchMail.Location = new System.Drawing.Point(627, 61);
+            this.searchMail.Location = new System.Drawing.Point(626, 87);
             this.searchMail.Name = "searchMail";
             this.searchMail.Size = new System.Drawing.Size(100, 20);
             this.searchMail.TabIndex = 27;
             // 
             // searchTlf
             // 
-            this.searchTlf.Location = new System.Drawing.Point(627, 99);
+            this.searchTlf.Location = new System.Drawing.Point(626, 125);
             this.searchTlf.Name = "searchTlf";
             this.searchTlf.Size = new System.Drawing.Size(100, 20);
             this.searchTlf.TabIndex = 28;
@@ -280,7 +284,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(624, 45);
+            this.label4.Location = new System.Drawing.Point(623, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 29;
@@ -289,17 +293,54 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(624, 83);
+            this.label7.Location = new System.Drawing.Point(623, 109);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 30;
             this.label7.Text = "Search by telefon";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(638, 162);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 31;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            // 
+            // idField
+            // 
+            this.idField.Location = new System.Drawing.Point(752, 61);
+            this.idField.Name = "idField";
+            this.idField.ReadOnly = true;
+            this.idField.Size = new System.Drawing.Size(38, 20);
+            this.idField.TabIndex = 32;
+            // 
+            // nameField
+            // 
+            this.nameField.Location = new System.Drawing.Point(812, 61);
+            this.nameField.Name = "nameField";
+            this.nameField.ReadOnly = true;
+            this.nameField.Size = new System.Drawing.Size(86, 20);
+            this.nameField.TabIndex = 33;
+            // 
+            // surnameField
+            // 
+            this.surnameField.Location = new System.Drawing.Point(942, 61);
+            this.surnameField.Name = "surnameField";
+            this.surnameField.ReadOnly = true;
+            this.surnameField.Size = new System.Drawing.Size(138, 20);
+            this.surnameField.TabIndex = 34;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 399);
+            this.Controls.Add(this.surnameField);
+            this.Controls.Add(this.nameField);
+            this.Controls.Add(this.idField);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.searchTlf);
@@ -351,16 +392,20 @@
         public System.Windows.Forms.DataGridView dataGridEmails;
         public System.Windows.Forms.DataGridView dataGridTelefons;
         public System.Windows.Forms.TextBox searchName;
-        public System.Windows.Forms.RadioButton nameRB;
+        public System.Windows.Forms.RadioButton searchNameRB;
         public System.Windows.Forms.Label label64;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.RadioButton radioButton2;
-        public System.Windows.Forms.RadioButton radioButton1;
+        public System.Windows.Forms.RadioButton searchTlfRB;
+        public System.Windows.Forms.RadioButton searchMailRB;
         public System.Windows.Forms.TextBox searchMail;
         public System.Windows.Forms.TextBox searchTlf;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.TextBox idField;
+        private System.Windows.Forms.TextBox nameField;
+        private System.Windows.Forms.TextBox surnameField;
     }
 }
 
