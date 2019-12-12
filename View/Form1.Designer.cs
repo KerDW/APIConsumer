@@ -51,12 +51,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.phonesOrMails = new System.Windows.Forms.DataGridView();
+            this.phones = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.mails = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
             this.search.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.phonesOrMails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mails)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -270,30 +273,55 @@
             this.label3.TabIndex = 32;
             this.label3.Text = "No filter";
             // 
-            // phonesOrMails
+            // phones
             // 
-            this.phonesOrMails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.phonesOrMails.Location = new System.Drawing.Point(635, 50);
-            this.phonesOrMails.Name = "phonesOrMails";
-            this.phonesOrMails.Size = new System.Drawing.Size(373, 279);
-            this.phonesOrMails.TabIndex = 33;
+            this.phones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.phones.Location = new System.Drawing.Point(635, 50);
+            this.phones.MultiSelect = false;
+            this.phones.Name = "phones";
+            this.phones.ReadOnly = true;
+            this.phones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.phones.Size = new System.Drawing.Size(373, 135);
+            this.phones.TabIndex = 33;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(634, 31);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 34;
-            this.label5.Text = "Phones/Emails";
+            this.label5.Text = "Phones";
+            // 
+            // mails
+            // 
+            this.mails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mails.Location = new System.Drawing.Point(635, 212);
+            this.mails.MultiSelect = false;
+            this.mails.Name = "mails";
+            this.mails.ReadOnly = true;
+            this.mails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mails.Size = new System.Drawing.Size(373, 135);
+            this.mails.TabIndex = 35;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(634, 191);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Emails";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 386);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.mails);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.phonesOrMails);
+            this.Controls.Add(this.phones);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label7);
@@ -318,7 +346,8 @@
             this.sorter.PerformLayout();
             this.search.ResumeLayout(false);
             this.search.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.phonesOrMails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,8 +378,10 @@
         public System.Windows.Forms.Button searchButton;
         public System.Windows.Forms.RadioButton noFilter;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.DataGridView phonesOrMails;
+        public System.Windows.Forms.DataGridView phones;
         public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.DataGridView mails;
+        public System.Windows.Forms.Label label6;
     }
 }
 

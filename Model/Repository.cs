@@ -50,9 +50,12 @@ namespace Model
 
             List<telefon> t = (List<telefon>)MakeRequest(string.Concat(ws1, "telefonC/", tlf), null, "GET", "application/json", typeof(List<telefon>));
 
-            foreach (telefon tel in t)
+            if(t != null)
             {
-                c.Add(tel.contacte);
+                foreach (telefon tel in t)
+                {
+                    c.Add(tel.contacte);
+                }
             }
 
             return c;
@@ -70,9 +73,12 @@ namespace Model
 
             List<email> e = (List<email>)MakeRequest(string.Concat(ws1, "emailC/", email), null, "GET", "application/json", typeof(List<email>));
 
-            foreach (email em in e)
+            if (e != null)
             {
-                c.Add(em.contacte);
+                foreach (email em in e)
+                {
+                    c.Add(em.contacte);
+                }
             }
 
             return c;

@@ -42,8 +42,10 @@ namespace Controller
 
                 f.dataGrid.Columns[3].Visible = false;
                 f.dataGrid.Columns[4].Visible = false;
-                f.phonesOrMails.Columns[3].Visible = false;
-                f.phonesOrMails.Columns[4].Visible = false;
+                f.phones.Columns[3].Visible = false;
+                f.phones.Columns[4].Visible = false;
+                f.mails.Columns[3].Visible = false;
+                f.mails.Columns[4].Visible = false;
 
             } catch(Exception e)
             {
@@ -65,6 +67,11 @@ namespace Controller
             f.remove.Click += removeGridItem;
             f.modify.Click += modifyGridItem;
         }
+        private void cleanSecondaryGrids()
+        {
+            f.phones.DataSource = null;
+            f.mails.DataSource = null;
+        }
 
         private void searchContacte(object sender, EventArgs e)
         {
@@ -77,17 +84,36 @@ namespace Controller
             switch (searchType)
             {
                 case "searchNameRB":
-                    f.dataGrid.DataSource = Repository.GetContactesTotByName(name);
+                    cleanSecondaryGrids();
+                    List<contacte> c = Repository.GetContactesTotByName(name);
+                    List<telefon> ph = new List<telefon>();
+                    List<email> em = new List<email>();
+                    foreach (contacte co in c)
+                    {
+                        if(co.telefons != null)
+                        {
+                            ph.AddRange(co.telefons);
+                        }
+                        if (co.emails != null)
+                        {
+                            em.AddRange(co.emails);
+                        }
+                    }
+                    f.dataGrid.DataSource = c;
+                    f.phones.DataSource = ph;
+                    f.mails.DataSource = em;
                     hideCols();
                     break;
                 case "searchMailRB":
+                    cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
-                    f.phonesOrMails.DataSource = Repository.GetEmailsByEmail(email);
+                    f.mails.DataSource = Repository.GetEmailsByEmail(email);
                     hideCols();
                     break;
                 case "searchTlfRB":
+                    cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
-                    f.phonesOrMails.DataSource = Repository.GetPhonesByPhone(tlf);
+                    f.phones.DataSource = Repository.GetPhonesByPhone(tlf);
                     hideCols();
                     break;
                 case "noFilter":
@@ -157,6 +183,8 @@ namespace Controller
 
         private void grid_SelectionChanged(object sender, EventArgs e)
         {
+
+            cleanSecondaryGrids();
 
             if (f.dataGrid.Rows.Count == 0)
             {
