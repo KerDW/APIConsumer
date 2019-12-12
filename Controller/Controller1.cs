@@ -78,6 +78,7 @@ namespace Controller
             String searchType = f.search.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
 
             string name = f.searchName.Text.ToString();
+            string nameTot = f.searchNameTot.Text.ToString();
             string email = f.searchMail.Text.ToString();
             string tlf = f.searchTlf.Text.ToString();
 
@@ -85,9 +86,16 @@ namespace Controller
             {
                 case "searchNameRB":
                     cleanSecondaryGrids();
-                    List<contacte> c = Repository.GetContactesTotByName(name);
+                    f.dataGrid.DataSource = Repository.GetContactesByName(name);
+                    hideCols();
+                    break;
+                case "searchNameTotRB":
+                    cleanSecondaryGrids();
+
+                    List<contacte> c = Repository.GetContactesTotByName(nameTot);
                     List<telefon> ph = new List<telefon>();
                     List<email> em = new List<email>();
+
                     foreach (contacte co in c)
                     {
                         if(co.telefons != null)
@@ -99,9 +107,11 @@ namespace Controller
                             em.AddRange(co.emails);
                         }
                     }
+
                     f.dataGrid.DataSource = c;
                     f.phones.DataSource = ph;
                     f.mails.DataSource = em;
+
                     hideCols();
                     break;
                 case "searchMailRB":
