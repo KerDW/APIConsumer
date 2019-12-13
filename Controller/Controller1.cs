@@ -114,11 +114,22 @@ namespace Controller
             {
                 case "insertContacteRB":
                     Repository.InsertContacte(field_1, field_2);
+                    f.dataGrid.DataSource = Repository.GetContactesTot();
+                    hideCols();
+                    f.dataGrid.CurrentCell = f.dataGrid[0, 0];
+                    f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
+                    f.dataGrid.Rows[0].Selected = true;
                     break;
                 case "insertTelefonRB":
                     if(f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
                     {
                         Repository.InsertTelefon(id, field_1, field_2);
+                        f.dataGrid.DataSource = Repository.GetTelefons();
+                        hideCols();
+                        f.dataGrid.CurrentCell = f.dataGrid[0, 0];
+                        f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
+                        f.dataGrid.Rows[0].Selected = true;
+                        f.telefonsRB.Checked = true;
                     }
                     else
                     {
@@ -129,6 +140,12 @@ namespace Controller
                     if (f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
                     {
                         Repository.InsertEmail(id, field_1, field_2);
+                        f.dataGrid.DataSource = Repository.GetEmails();
+                        hideCols();
+                        f.dataGrid.CurrentCell = f.dataGrid[0, 0];
+                        f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
+                        f.dataGrid.Rows[0].Selected = true;
+                        f.emailsRB.Checked = true;
                     } else
                     {
                         MessageBox.Show("Select a contacte to insert an email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
