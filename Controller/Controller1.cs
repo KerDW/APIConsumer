@@ -276,7 +276,15 @@ namespace Controller
         private void grid_SelectionChanged(object sender, EventArgs e)
         {
 
-            cleanSecondaryGrids();
+            if (f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
+            {
+                int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+
+                f.phones.DataSource = Repository.GetContactePhones(id);
+                f.mails.DataSource = Repository.GetContacteEmails(id);
+            } else{
+                cleanSecondaryGrids();
+            }
 
             if (f.dataGrid.Rows.Count == 0)
             {

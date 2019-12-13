@@ -22,6 +22,28 @@ namespace Model
             contacte c = (contacte)MakeRequest(string.Concat(ws1, "contacteTot/", id), null, "GET", "application/json", typeof(contacte));
             return c;
         }
+        public static List<telefon> GetContactePhones(int id)
+        {
+            contacte c = (contacte)MakeRequest(string.Concat(ws1, "contacteTot/", id), null, "GET", "application/json", typeof(contacte));
+
+            List<telefon> tels = new List<telefon>();
+
+            tels.AddRange(c.telefons);
+            
+            return tels;
+        }
+
+        public static List<email> GetContacteEmails(int id)
+        {
+            contacte c = (contacte)MakeRequest(string.Concat(ws1, "contacteTot/", id), null, "GET", "application/json", typeof(contacte));
+
+            List<email> emails = new List<email>();
+
+            emails.AddRange(c.emails);
+            
+            return emails;
+        }
+
 
         public static List<contacte> GetContactesTot()
         {
