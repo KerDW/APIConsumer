@@ -116,10 +116,23 @@ namespace Controller
                     Repository.InsertContacte(field_1, field_2);
                     break;
                 case "insertTelefonRB":
-                    Repository.InsertTelefon(id, field_1, field_2);
+                    if(f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
+                    {
+                        Repository.InsertTelefon(id, field_1, field_2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Select a contacte to insert a telefon.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                     break;
                 case "insertEmailRB":
-                    Repository.InsertEmail(id, field_1, field_2);
+                    if (f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
+                    {
+                        Repository.InsertEmail(id, field_1, field_2);
+                    } else
+                    {
+                        MessageBox.Show("Select a contacte to insert an email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                     break;
                 default:
                     Console.WriteLine("error");
@@ -189,7 +202,7 @@ namespace Controller
         private void modifyGridItem(object sender, EventArgs e)
         {
             String grid_table = f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
-            f.dataGrid.CurrentCell = f.dataGrid[0, 0];
+            // f.dataGrid.CurrentCell = f.dataGrid[0, 0];
             int currentIndex = f.dataGrid.CurrentCell.RowIndex;
             int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
             String attr1 = f.attr1.Text.ToString();
@@ -287,6 +300,10 @@ namespace Controller
             assignAttrValues();
             f.dataGrid.Columns[3].Visible = false;
             f.dataGrid.Columns[4].Visible = false;
+
+            f.dataGrid.CurrentCell = f.dataGrid[0, 0];
+            f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
+            f.dataGrid.Rows[0].Selected = true;
 
         }
 
