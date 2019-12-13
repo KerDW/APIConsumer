@@ -125,6 +125,7 @@ namespace Controller
 
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
+                        hideCols();
                     }
                     else
                     {
@@ -140,6 +141,7 @@ namespace Controller
 
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
+                        hideCols();
                     } else
                     {
                         MessageBox.Show("Select a contacte to insert an email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -276,6 +278,7 @@ namespace Controller
 
                 f.phones.DataSource = Repository.GetContactePhones(id);
                 f.mails.DataSource = Repository.GetContacteEmails(id);
+                hideCols();
             } else{
                 cleanSecondaryGrids();
             }
