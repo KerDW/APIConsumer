@@ -85,7 +85,10 @@ namespace Controller
                 int receiver_id = f.magatzem2cb.SelectedIndex+1;
                 int qty = int.Parse(f.qty.Text);
 
-                Repository.moveStock(receiver_id, sender_id, prod_id, qty);
+                if (!Repository.moveStock(receiver_id, sender_id, prod_id, qty))
+                {
+                    MessageBox.Show("There is not enough stock.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
 
                 reloadData();
 

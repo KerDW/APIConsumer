@@ -31,7 +31,7 @@ namespace Model
             return vpm;
         }
 
-        public static void moveStock(int receiver_id, int sender_id, int prod_id, int qty)
+        public static bool moveStock(int receiver_id, int sender_id, int prod_id, int qty)
         {
             JObject jsonObject = new JObject
             {
@@ -40,7 +40,11 @@ namespace Model
                 ["qnt"] = qty
             };
 
-            MakeRequest(string.Concat(ws1, "movestock/", sender_id), jsonObject, "PUT", "application/json", typeof(ProdMag));
+            if (MakeRequest(string.Concat(ws1, "movestock/", sender_id), jsonObject, "PUT", "application/json", typeof(ProdMag)) == null){
+                return false;
+            }
+
+            return true;
 
         }
 
