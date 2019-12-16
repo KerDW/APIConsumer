@@ -6,45 +6,53 @@ namespace Model
     public class Model1
     {
 
-        public partial class telefon
+        public class ProdMag
         {
-            public int telId { get; set; }
-            public string telefon1 { get; set; }
-            public string tipus { get; set; }
-            public Nullable<int> contacteId { get; set; }
+            public int idProd { get; set; }
+            public int idMag { get; set; }
+            public int qnt { get; set; }
 
-            public virtual contacte contacte { get; set; }
+            public virtual Magatzem Magatzem { get; set; }
+            public virtual Producte Producte { get; set; }
         }
 
-        public partial class email
+        public class VProdMag
         {
-            public int emailId { get; set; }
-            public string email1 { get; set; }
-            public string tipus { get; set; }
-            public Nullable<int> contacteId { get; set; }
-
-            public virtual contacte contacte { get; set; }
+            public int idProd { get; set; }
+            public int idMag { get; set; }
+            public int qnt { get; set; }
+            public string nomProd { get; set; }
+            public string nomMag { get; set; }
         }
 
-        public class contacte
+        public class Producte
         {
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-            public contacte()
+            public Producte()
             {
-                this.emails = new HashSet<email>();
-                this.telefons = new HashSet<telefon>();
+                this.ProdMags = new HashSet<ProdMag>();
             }
 
-            public int contacteId { get; set; }
+            public int id { get; set; }
             public string nom { get; set; }
-            public string cognoms { get; set; }
 
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-            public virtual ICollection<email> emails { get; set; }
+            public virtual ICollection<ProdMag> ProdMags { get; set; }
+        }
+
+        public class Magatzem
+        {
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+            public Magatzem()
+            {
+                this.ProdMags = new HashSet<ProdMag>();
+            }
+
+            public int id { get; set; }
+            public string nom { get; set; }
+
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-            public virtual ICollection<telefon> telefons { get; set; }
-
-
+            public virtual ICollection<ProdMag> ProdMags { get; set; }
         }
 
     }
