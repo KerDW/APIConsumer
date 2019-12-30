@@ -69,6 +69,7 @@
             this.insert_field_1_label = new System.Windows.Forms.Label();
             this.insert_field_2_label = new System.Windows.Forms.Label();
             this.usersListBox = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
             this.search.SuspendLayout();
@@ -451,11 +452,21 @@
             this.usersListBox.Size = new System.Drawing.Size(149, 381);
             this.usersListBox.TabIndex = 48;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1013, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 13);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Users online:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 424);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.usersListBox);
             this.Controls.Add(this.insert_field_2_label);
             this.Controls.Add(this.insert_field_1_label);
@@ -547,6 +558,7 @@
         public System.Windows.Forms.Label insert_field_1_label;
         public System.Windows.Forms.Label insert_field_2_label;
         public System.Windows.Forms.ListBox usersListBox;
+        private System.Windows.Forms.Label label11;
     }
 }
 
