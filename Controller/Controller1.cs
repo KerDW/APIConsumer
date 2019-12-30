@@ -2,6 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using View;
 using static Model.Model1;
@@ -14,6 +18,9 @@ namespace Controller
         Form1 f;
         Model1 m;
         List<String> onlineUsers = new List<String>();
+        CancellationTokenSource cts = new CancellationTokenSource();
+        ClientWebSocket socket = new ClientWebSocket();
+        String username = "";
 
         public Controller1()
         {
@@ -35,13 +42,51 @@ namespace Controller
 
             hideCols();
 
-            string username = "";
-
             while (onlineUsers.Contains(username) || username.Equals(""))
             {
                 username = Microsoft.VisualBasic.Interaction.InputBox("Insert your username below:", "Data entry", "");
             }
 
+            Start();
+
+        }
+
+        public async Task Start()
+        {
+            string nom = username;
+            string wsUri = string.Format("wss://localhost:44311/api/websocket?nom={0}", nom);
+            await socket.ConnectAsync(new Uri(wsUri), cts.Token);
+
+            await Task.Factory.StartNew(
+                async () =>
+                {
+                    var rcvBytes = new byte[128];
+                    var rcvBuffer = new ArraySegment<byte>(rcvBytes);
+                    while (true)
+                    {
+                        WebSocketReceiveResult rcvResult = await socket.ReceiveAsync(rcvBuffer, cts.Token);
+                        byte[] msgBytes = rcvBuffer.Skip(rcvBuffer.Offset).Take(rcvResult.Count).ToArray();
+                        string rcvMsg = Encoding.UTF8.GetString(msgBytes);
+                        if (rcvMsg.StartsWith("*"))
+                        {
+                            //Application.Current.Dispatcher.Invoke(new Action(() =>
+                            //{
+                                onlineUsers.Clear();
+                                foreach (var user in rcvMsg.Substring(1).Split(','))
+                                {
+                                    onlineUsers.Add(user);
+                                }
+                            //}));
+                        }
+                        else
+                        {
+                            //Application.Current.Dispatcher.Invoke(new Action(() => {
+                                // update here
+                            //}));
+                        }
+                        Console.WriteLine("{0}", rcvMsg);
+                    }
+                }, cts.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
         }
 
         private void hideCols()
