@@ -1,5 +1,6 @@
 ﻿using Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
@@ -24,6 +25,10 @@ namespace Controller
         CancellationTokenSource cts = new CancellationTokenSource();
         ClientWebSocket socket = new ClientWebSocket();
 
+        List<telefon> lastTelefonDatasource = new List<telefon>();
+        List<email> lastEmailDatasource = new List<email>();
+        ArrayList lastDatagridDatasource = new ArrayList();
+
         public Controller1()
         {
             f = new Form1();
@@ -40,6 +45,9 @@ namespace Controller
             if(Repository.GetContactesTot() != null)
             {
                 f.dataGrid.DataSource = Repository.GetContactesTot();
+
+                lastDatagridDatasource.Clear();
+                lastDatagridDatasource.AddRange(Repository.GetContactesTot());
             }
 
             hideCols();
@@ -51,6 +59,17 @@ namespace Controller
 
             Start();
 
+        }
+
+        public void updateDatasources()
+        {
+            f.dataGrid.DataSource = null;
+            f.phones.DataSource = null;
+            f.mails.DataSource = null;
+
+            f.dataGrid.DataSource = lastDatagridDatasource;
+            f.phones.DataSource = lastTelefonDatasource;
+            f.mails.DataSource = lastEmailDatasource;
         }
 
         public async Task Start()
@@ -88,7 +107,7 @@ namespace Controller
                             //run on ui thread
                             f.Invoke((MethodInvoker)delegate ()
                             {
-                                // alert clients to update
+                                updateDatasources();
                             });
                             Console.WriteLine("{0}", rcvMsg);
                         }
@@ -160,6 +179,9 @@ namespace Controller
         {
             f.phones.DataSource = null;
             f.mails.DataSource = null;
+
+            lastEmailDatasource = null;
+            lastTelefonDatasource = null;
         }
 
         private void insertValues(object sender, EventArgs e)
@@ -186,6 +208,10 @@ namespace Controller
 
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
+
+                        lastTelefonDatasource = Repository.GetContactePhones(contacteId);
+                        lastEmailDatasource = Repository.GetContacteEmails(contacteId);
+
                         hideCols();
                     }
                     else
@@ -202,6 +228,10 @@ namespace Controller
 
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
+
+                        lastTelefonDatasource = Repository.GetContactePhones(contacteId);
+                        lastEmailDatasource = Repository.GetContacteEmails(contacteId);
+
                         hideCols();
                     } else
                     {
@@ -228,6 +258,10 @@ namespace Controller
                 case "searchNameRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByName(name);
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetContactesByName(name));
+
                     hideCols();
                     break;
                 case "searchNameTotRB":
@@ -253,18 +287,33 @@ namespace Controller
                     f.phones.DataSource = ph;
                     f.mails.DataSource = em;
 
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(c);
+                    lastTelefonDatasource = ph;
+                    lastEmailDatasource = em;
+
                     hideCols();
                     break;
                 case "searchMailRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
                     f.mails.DataSource = Repository.GetEmailsByEmail(email);
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetContactesByEmail(email));
+                    lastEmailDatasource = Repository.GetEmailsByEmail(email);
+
                     hideCols();
                     break;
                 case "searchTlfRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
                     f.phones.DataSource = Repository.GetPhonesByPhone(tlf);
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetContactesByPhone(tlf));
+                    lastTelefonDatasource = Repository.GetPhonesByPhone(tlf);
+
                     hideCols();
                     break;
                 default:
@@ -287,14 +336,22 @@ namespace Controller
                 case "contactesRB":
                     Repository.ModifyContacte(id, attr1, attr2);
                     f.dataGrid.DataSource = Repository.GetContactesTot();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
                     break;
                 case "telefonsRB":
                     Repository.ModifyTelefon(id, attr1, attr2);
                     f.dataGrid.DataSource = Repository.GetTelefons();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetTelefons());
                     break;
                 case "emailsRB":
                     Repository.ModifyEmail(id, attr1, attr2);
                     f.dataGrid.DataSource = Repository.GetEmails();
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetEmails());
                     break;
                 default:
                     Console.WriteLine("error");
@@ -315,14 +372,23 @@ namespace Controller
                 case "contactesRB":
                     Repository.DeleteContacte(id);
                     f.dataGrid.DataSource = Repository.GetContactesTot();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
                     break;
                 case "telefonsRB":
                     Repository.DeleteTelefon(id);
                     f.dataGrid.DataSource = Repository.GetTelefons();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetTelefons());
                     break;
                 case "emailsRB":
                     Repository.DeleteEmail(id);
                     f.dataGrid.DataSource = Repository.GetEmails();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetEmails());
                     break;
                 default:
                     Console.WriteLine("error");
@@ -339,6 +405,10 @@ namespace Controller
 
                 f.phones.DataSource = Repository.GetContactePhones(id);
                 f.mails.DataSource = Repository.GetContacteEmails(id);
+
+                lastTelefonDatasource = Repository.GetContactePhones(id);
+                lastEmailDatasource = Repository.GetContacteEmails(id);
+
                 hideCols();
             } else{
                 cleanSecondaryGrids();
@@ -369,12 +439,21 @@ namespace Controller
             {
                 case "contactesRB":
                     f.dataGrid.DataSource = Repository.GetContactesTot();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
                     break;
                 case "telefonsRB":
                     f.dataGrid.DataSource = Repository.GetTelefons();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetTelefons());
                     break;
                 case "emailsRB":
                     f.dataGrid.DataSource = Repository.GetEmails();
+
+                    lastDatagridDatasource.Clear();
+                    lastDatagridDatasource.AddRange(Repository.GetEmails());
                     break;
                 default:
                     Console.WriteLine("error");
