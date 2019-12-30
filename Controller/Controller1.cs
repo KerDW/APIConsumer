@@ -13,7 +13,6 @@ namespace Controller
 
         Form1 f;
         Model1 m;
-        List<String> onlineUsers = new List<String>();
 
         public Controller1()
         {
@@ -34,13 +33,6 @@ namespace Controller
             }
 
             hideCols();
-
-            string username = "";
-
-            while (onlineUsers.Contains(username) || username.Equals(""))
-            {
-                username = Microsoft.VisualBasic.Interaction.InputBox("Insert your username below:", "Data entry", "");
-            }
 
         }
 
