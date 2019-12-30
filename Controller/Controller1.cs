@@ -188,6 +188,9 @@ namespace Controller
             {
                 case "insertContacteRB":
                     Repository.InsertContacte(field_1, field_2);
+
+                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
+
                     alertChanges();
 
                     break;
