@@ -28,7 +28,10 @@ namespace Model
 
             List<telefon> tels = new List<telefon>();
 
-            tels.AddRange(c.telefons);
+            if(c != null)
+            {
+                tels.AddRange(c.telefons);
+            }
             
             return tels;
         }
@@ -39,7 +42,10 @@ namespace Model
 
             List<email> emails = new List<email>();
 
-            emails.AddRange(c.emails);
+            if (c != null)
+            {
+                emails.AddRange(c.emails);
+            }
             
             return emails;
         }

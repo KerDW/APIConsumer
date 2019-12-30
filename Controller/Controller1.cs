@@ -50,7 +50,8 @@ namespace Controller
                 lastDatagridDatasource.AddRange(Repository.GetContactesTot());
             }
 
-            hideCols();
+            f.dataGrid.Columns[3].Visible = false;
+            f.dataGrid.Columns[4].Visible = false;
 
             while (onlineUsers.Contains(username) || username.Equals(""))
             {
@@ -121,24 +122,6 @@ namespace Controller
                         }
                     }
                 }, cts.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
-            
-        }
-
-        private void hideCols()
-        {
-            try{
-
-                f.dataGrid.Columns[3].Visible = false;
-                f.dataGrid.Columns[4].Visible = false;
-                f.phones.Columns[3].Visible = false;
-                f.phones.Columns[4].Visible = false;
-                f.mails.Columns[3].Visible = false;
-                f.mails.Columns[4].Visible = false;
-
-            } catch(Exception e)
-            {
-
-            }
             
         }
 
@@ -221,8 +204,6 @@ namespace Controller
 
                         lastTelefonDatasource = Repository.GetContactePhones(contacteId);
                         lastEmailDatasource = Repository.GetContacteEmails(contacteId);
-
-                        hideCols();
                     }
                     else
                     {
@@ -242,8 +223,6 @@ namespace Controller
 
                         lastTelefonDatasource = Repository.GetContactePhones(contacteId);
                         lastEmailDatasource = Repository.GetContacteEmails(contacteId);
-
-                        hideCols();
                     } else
                     {
                         MessageBox.Show("Select a contacte to insert an email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -272,8 +251,6 @@ namespace Controller
 
                     lastDatagridDatasource.Clear();
                     lastDatagridDatasource.AddRange(Repository.GetContactesByName(name));
-
-                    hideCols();
                     break;
                 case "searchNameTotRB":
                     cleanSecondaryGrids();
@@ -302,8 +279,6 @@ namespace Controller
                     lastDatagridDatasource.AddRange(c);
                     lastTelefonDatasource = ph;
                     lastEmailDatasource = em;
-
-                    hideCols();
                     break;
                 case "searchMailRB":
                     cleanSecondaryGrids();
@@ -313,8 +288,6 @@ namespace Controller
                     lastDatagridDatasource.Clear();
                     lastDatagridDatasource.AddRange(Repository.GetContactesByEmail(email));
                     lastEmailDatasource = Repository.GetEmailsByEmail(email);
-
-                    hideCols();
                     break;
                 case "searchTlfRB":
                     cleanSecondaryGrids();
@@ -324,8 +297,6 @@ namespace Controller
                     lastDatagridDatasource.Clear();
                     lastDatagridDatasource.AddRange(Repository.GetContactesByPhone(tlf));
                     lastTelefonDatasource = Repository.GetPhonesByPhone(tlf);
-
-                    hideCols();
                     break;
                 default:
                     Console.WriteLine("error");
@@ -425,8 +396,6 @@ namespace Controller
 
                 lastTelefonDatasource = Repository.GetContactePhones(id);
                 lastEmailDatasource = Repository.GetContacteEmails(id);
-
-                hideCols();
             } else{
                 cleanSecondaryGrids();
             }
@@ -477,13 +446,14 @@ namespace Controller
                     break;
             }
             assignAttrValues();
-            f.dataGrid.Columns[3].Visible = false;
-            f.dataGrid.Columns[4].Visible = false;
+            
 
             f.dataGrid.CurrentCell = f.dataGrid[0, 0];
             f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
             f.dataGrid.Rows[0].Selected = true;
 
+            f.dataGrid.Columns[3].Visible = false;
+            f.dataGrid.Columns[4].Visible = false;
         }
 
         private void assignAttrValues()
