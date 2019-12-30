@@ -32,26 +32,9 @@ namespace Controller
                 f.dataGrid.DataSource = Repository.GetContactesTot();
             }
 
-            hideCols();
+            f.dataGrid.Columns[3].Visible = false;
+            f.dataGrid.Columns[4].Visible = false;
 
-        }
-
-        private void hideCols()
-        {
-            try{
-
-                f.dataGrid.Columns[3].Visible = false;
-                f.dataGrid.Columns[4].Visible = false;
-                f.phones.Columns[3].Visible = false;
-                f.phones.Columns[4].Visible = false;
-                f.mails.Columns[3].Visible = false;
-                f.mails.Columns[4].Visible = false;
-
-            } catch(Exception e)
-            {
-
-            }
-            
         }
 
         private void InitListeners()
@@ -125,7 +108,6 @@ namespace Controller
 
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
-                        hideCols();
                     }
                     else
                     {
@@ -141,7 +123,6 @@ namespace Controller
 
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
-                        hideCols();
                     } else
                     {
                         MessageBox.Show("Select a contacte to insert an email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -167,7 +148,6 @@ namespace Controller
                 case "searchNameRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByName(name);
-                    hideCols();
                     break;
                 case "searchNameTotRB":
                     cleanSecondaryGrids();
@@ -192,19 +172,16 @@ namespace Controller
                     f.phones.DataSource = ph;
                     f.mails.DataSource = em;
 
-                    hideCols();
                     break;
                 case "searchMailRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
                     f.mails.DataSource = Repository.GetEmailsByEmail(email);
-                    hideCols();
                     break;
                 case "searchTlfRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
                     f.phones.DataSource = Repository.GetPhonesByPhone(tlf);
-                    hideCols();
                     break;
                 default:
                     Console.WriteLine("error");
@@ -278,7 +255,6 @@ namespace Controller
 
                 f.phones.DataSource = Repository.GetContactePhones(id);
                 f.mails.DataSource = Repository.GetContacteEmails(id);
-                hideCols();
             } else{
                 cleanSecondaryGrids();
             }
@@ -320,13 +296,14 @@ namespace Controller
                     break;
             }
             assignAttrValues();
-            f.dataGrid.Columns[3].Visible = false;
-            f.dataGrid.Columns[4].Visible = false;
+            
 
             f.dataGrid.CurrentCell = f.dataGrid[0, 0];
             f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
             f.dataGrid.Rows[0].Selected = true;
 
+            f.dataGrid.Columns[3].Visible = false;
+            f.dataGrid.Columns[4].Visible = false;
         }
 
         private void assignAttrValues()
