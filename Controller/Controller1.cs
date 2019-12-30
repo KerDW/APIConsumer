@@ -75,6 +75,7 @@ namespace Controller
                             f.Invoke((MethodInvoker)delegate ()
                            {
                                onlineUsers.Clear();
+                               f.usersListBox.DataSource = null;
                                foreach (var user in rcvMsg.Substring(1).Split(','))
                                {
                                    onlineUsers.Add(user);
