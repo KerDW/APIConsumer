@@ -17,10 +17,12 @@ namespace Controller
 
         Form1 f;
         Model1 m;
+
         List<String> onlineUsers = new List<String>();
+        String username = "";
+
         CancellationTokenSource cts = new CancellationTokenSource();
         ClientWebSocket socket = new ClientWebSocket();
-        String username = "";
 
         public Controller1()
         {
@@ -69,24 +71,29 @@ namespace Controller
                         string rcvMsg = Encoding.UTF8.GetString(msgBytes);
                         if (rcvMsg.StartsWith("*"))
                         {
-                            //Application.Current.Dispatcher.Invoke(new Action(() =>
-                            //{
-                                onlineUsers.Clear();
-                                foreach (var user in rcvMsg.Substring(1).Split(','))
-                                {
-                                    onlineUsers.Add(user);
-                                }
-                            //}));
+                            //run on ui thread
+                            f.Invoke((MethodInvoker)delegate ()
+                           {
+                               onlineUsers.Clear();
+                               foreach (var user in rcvMsg.Substring(1).Split(','))
+                               {
+                                   onlineUsers.Add(user);
+                               }
+                               f.usersListBox.DataSource = onlineUsers;
+                           });
                         }
                         else
                         {
-                            //Application.Current.Dispatcher.Invoke(new Action(() => {
-                                // update here
-                            //}));
+                            //run on ui thread
+                            f.Invoke((MethodInvoker)delegate ()
+                            {
+                                // alert clients to update
+                            });
+                            Console.WriteLine("{0}", rcvMsg);
                         }
-                        Console.WriteLine("{0}", rcvMsg);
                     }
                 }, cts.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+            
         }
 
         private void hideCols()

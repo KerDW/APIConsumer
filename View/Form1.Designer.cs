@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchNameTotRB = new System.Windows.Forms.RadioButton();
             this.search = new System.Windows.Forms.GroupBox();
+            this.searchNameRB = new System.Windows.Forms.RadioButton();
             this.searchTlfRB = new System.Windows.Forms.RadioButton();
             this.searchMailRB = new System.Windows.Forms.RadioButton();
             this.searchMail = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.searchName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.searchNameRB = new System.Windows.Forms.RadioButton();
             this.insert_field_1 = new System.Windows.Forms.TextBox();
             this.insert_field_2 = new System.Windows.Forms.TextBox();
             this.whichInsert = new System.Windows.Forms.GroupBox();
@@ -68,6 +68,7 @@
             this.insertButton = new System.Windows.Forms.Button();
             this.insert_field_1_label = new System.Windows.Forms.Label();
             this.insert_field_2_label = new System.Windows.Forms.Label();
+            this.usersListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.sorter.SuspendLayout();
             this.search.SuspendLayout();
@@ -210,6 +211,15 @@
             this.search.TabIndex = 19;
             this.search.TabStop = false;
             // 
+            // searchNameRB
+            // 
+            this.searchNameRB.AutoSize = true;
+            this.searchNameRB.Location = new System.Drawing.Point(6, 19);
+            this.searchNameRB.Name = "searchNameRB";
+            this.searchNameRB.Size = new System.Drawing.Size(14, 13);
+            this.searchNameRB.TabIndex = 22;
+            this.searchNameRB.UseVisualStyleBackColor = true;
+            // 
             // searchTlfRB
             // 
             this.searchTlfRB.AutoSize = true;
@@ -325,15 +335,6 @@
             this.label8.TabIndex = 38;
             this.label8.Text = "Search by name";
             // 
-            // searchNameRB
-            // 
-            this.searchNameRB.AutoSize = true;
-            this.searchNameRB.Location = new System.Drawing.Point(6, 19);
-            this.searchNameRB.Name = "searchNameRB";
-            this.searchNameRB.Size = new System.Drawing.Size(14, 13);
-            this.searchNameRB.TabIndex = 22;
-            this.searchNameRB.UseVisualStyleBackColor = true;
-            // 
             // insert_field_1
             // 
             this.insert_field_1.Location = new System.Drawing.Point(246, 354);
@@ -442,11 +443,20 @@
             this.insert_field_2_label.TabIndex = 47;
             this.insert_field_2_label.Text = "Cognoms";
             // 
+            // usersListBox
+            // 
+            this.usersListBox.FormattingEnabled = true;
+            this.usersListBox.Location = new System.Drawing.Point(1013, 31);
+            this.usersListBox.Name = "usersListBox";
+            this.usersListBox.Size = new System.Drawing.Size(149, 381);
+            this.usersListBox.TabIndex = 48;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 424);
+            this.ClientSize = new System.Drawing.Size(1174, 424);
+            this.Controls.Add(this.usersListBox);
             this.Controls.Add(this.insert_field_2_label);
             this.Controls.Add(this.insert_field_1_label);
             this.Controls.Add(this.insertButton);
@@ -536,6 +546,7 @@
         public System.Windows.Forms.Button insertButton;
         public System.Windows.Forms.Label insert_field_1_label;
         public System.Windows.Forms.Label insert_field_2_label;
+        public System.Windows.Forms.ListBox usersListBox;
     }
 }
 
