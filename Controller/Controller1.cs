@@ -97,6 +97,7 @@ namespace Controller
             {
                 case "insertContacteRB":
                     Repository.InsertContacte(field_1, field_2);
+                    f.dataGrid.DataSource = Repository.GetContactesTot();
 
                     break;
                 case "insertTelefonRB":
