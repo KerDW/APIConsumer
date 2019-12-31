@@ -34,8 +34,6 @@ namespace Controller
         String lastTelSearch = "";
         String lastEmailSearch = "";
 
-        int lastContacteId;
-
         public Controller1()
         {
             f = new Form1();
@@ -52,8 +50,6 @@ namespace Controller
             if(Repository.GetContactesTot() != null)
             {
                 f.dataGrid.DataSource = Repository.GetContactesTot();
-                lastContacteId = int.Parse(f.dataGrid[0, 0].Value.ToString());
-                Console.WriteLine(lastContacteId);
             }
 
             f.dataGrid.Columns[3].Visible = false;
@@ -78,6 +74,9 @@ namespace Controller
 
         public void updateDatasources()
         {
+            int current_row_selection = f.dataGrid.CurrentCell.RowIndex;
+            int lastContacteId = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+
             f.dataGrid.DataSource = null;
             f.phones.DataSource = null;
             f.mails.DataSource = null;
@@ -110,6 +109,10 @@ namespace Controller
                     break;
             }
 
+            f.dataGrid.CurrentCell = f.dataGrid.Rows[current_row_selection].Cells[0];
+            f.dataGrid.Rows[current_row_selection].Selected = true;
+            assignAttrValues();
+
             switch (lastApiCallTelefons)
             {
                 case "getcontactephones":
@@ -129,7 +132,7 @@ namespace Controller
                     f.phones.DataSource = Repository.GetPhonesByPhone(lastTelSearch);
                     break;
                 case "null":
-                    f.phones.DataSource = null;
+
                     break;
                 default:
                     Console.WriteLine("error");
@@ -155,7 +158,7 @@ namespace Controller
                     f.mails.DataSource = Repository.GetEmailsByEmail(lastEmailSearch);
                     break;
                 case "null":
-                    f.mails.DataSource = null;
+
                     break;
                 default:
                     Console.WriteLine("error");
@@ -291,7 +294,6 @@ namespace Controller
 
                         lastApiCallEmails = "getcontacteemails";
                         lastApiCallTelefons = "getcontactephones";
-                        lastContacteId = contacteId;
                     }
                     else
                     {
@@ -311,7 +313,6 @@ namespace Controller
 
                         lastApiCallEmails = "getcontacteemails";
                         lastApiCallTelefons = "getcontactephones";
-                        lastContacteId = contacteId;
 
                     } else
                     {
@@ -479,7 +480,6 @@ namespace Controller
 
                 lastApiCallEmails = "getcontacteemails";
                 lastApiCallTelefons = "getcontactephones";
-                lastContacteId = id;
             } else{
                 cleanSecondaryGrids();
             }
@@ -524,7 +524,6 @@ namespace Controller
                     break;
             }
             assignAttrValues();
-            
 
             f.dataGrid.CurrentCell = f.dataGrid[0, 0];
             f.dataGrid.CurrentCell = f.dataGrid.Rows[0].Cells[0];
