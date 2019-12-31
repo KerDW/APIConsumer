@@ -25,9 +25,16 @@ namespace Controller
         CancellationTokenSource cts = new CancellationTokenSource();
         ClientWebSocket socket = new ClientWebSocket();
 
-        List<telefon> lastTelefonDatasource = new List<telefon>();
-        List<email> lastEmailDatasource = new List<email>();
-        ArrayList lastDatagridDatasource = new ArrayList();
+        String lastApiCallDatagrid = "getcontactestot";
+        String lastApiCallTelefons = "getcontactephones";
+        String lastApiCallEmails = "getcontacteemails";
+
+        String lastNameSearch = "";
+        String lastNameTotSearch = "";
+        String lastTelSearch = "";
+        String lastEmailSearch = "";
+
+        int lastContacteId;
 
         public Controller1()
         {
@@ -45,9 +52,8 @@ namespace Controller
             if(Repository.GetContactesTot() != null)
             {
                 f.dataGrid.DataSource = Repository.GetContactesTot();
-
-                lastDatagridDatasource.Clear();
-                lastDatagridDatasource.AddRange(Repository.GetContactesTot());
+                lastContacteId = int.Parse(f.dataGrid[0, 0].Value.ToString());
+                Console.WriteLine(lastContacteId);
             }
 
             f.dataGrid.Columns[3].Visible = false;
@@ -76,9 +82,80 @@ namespace Controller
             f.phones.DataSource = null;
             f.mails.DataSource = null;
 
-            f.dataGrid.DataSource = lastDatagridDatasource;
-            f.phones.DataSource = lastTelefonDatasource;
-            f.mails.DataSource = lastEmailDatasource;
+            switch (lastApiCallDatagrid)
+            {
+                case "getcontactestotbyname":
+                    f.dataGrid.DataSource = Repository.GetContactesTotByName(lastNameTotSearch);
+                    break;
+                case "getcontactestot":
+                    f.dataGrid.DataSource = Repository.GetContactesTot();
+                    break;
+                case "gettelefons":
+                    f.dataGrid.DataSource = Repository.GetTelefons();
+                    break;
+                case "getemails":
+                    f.dataGrid.DataSource = Repository.GetEmails();
+                    break;
+                case "getcontactesbyname":
+                    f.dataGrid.DataSource = Repository.GetContactesByName(lastNameSearch);
+                    break;
+                case "getcontactesbyemail":
+                    f.dataGrid.DataSource = Repository.GetContactesByEmail(lastEmailSearch);
+                    break;
+                case "getcontactesbyphone":
+                    f.dataGrid.DataSource = Repository.GetContactesByPhone(lastTelSearch);
+                    break;
+                default:
+                    Console.WriteLine("error");
+                    break;
+            }
+
+            switch (lastApiCallTelefons)
+            {
+                case "getcontactephones":
+                    f.phones.DataSource = Repository.GetContactePhones(lastContacteId);
+                    break;
+                case "getcontactestotbyname":
+                    List<telefon> tels = new List<telefon>();
+                    List<contacte> cs = Repository.GetContactesTotByName(lastNameTotSearch);
+
+                    foreach (contacte c in cs)
+                    {
+                        tels.AddRange(c.telefons);
+                    }
+                    f.phones.DataSource = tels;
+                    break;
+                case "getphonesbyphone":
+                    f.phones.DataSource = Repository.GetPhonesByPhone(lastTelSearch);
+                    break;
+                default:
+                    Console.WriteLine("error");
+                    break;
+            }
+
+            switch (lastApiCallEmails)
+            {
+                case "getcontacteemails":
+                    f.mails.DataSource = Repository.GetContacteEmails(lastContacteId);
+                    break;
+                case "getcontactestotbyname":
+                    List<email> emails = new List<email>();
+                    List<contacte> cs = Repository.GetContactesTotByName(lastNameTotSearch);
+
+                    foreach (contacte c in cs)
+                    {
+                        emails.AddRange(c.emails);
+                    }
+                    f.mails.DataSource = emails;
+                    break;
+                case "getemailsbyemail":
+                    f.mails.DataSource = Repository.GetEmailsByEmail(lastEmailSearch);
+                    break;
+                default:
+                    Console.WriteLine("error");
+                    break;
+            }
+
         }
 
         public async Task Start()
@@ -171,8 +248,8 @@ namespace Controller
             f.phones.DataSource = null;
             f.mails.DataSource = null;
 
-            lastEmailDatasource = null;
-            lastTelefonDatasource = null;
+            lastApiCallEmails = "null";
+            lastApiCallTelefons = "null";
         }
 
         private void insertValues(object sender, EventArgs e)
@@ -188,8 +265,9 @@ namespace Controller
             {
                 case "insertContacteRB":
                     Repository.InsertContacte(field_1, field_2);
+                    f.dataGrid.DataSource = Repository.GetContactesTot();
 
-                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
+                    lastApiCallDatagrid = "getcontactestot";
 
                     alertChanges();
 
@@ -205,8 +283,9 @@ namespace Controller
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
 
-                        lastTelefonDatasource = Repository.GetContactePhones(contacteId);
-                        lastEmailDatasource = Repository.GetContacteEmails(contacteId);
+                        lastApiCallEmails = "getcontacteemails";
+                        lastApiCallTelefons = "getcontactephones";
+                        lastContacteId = contacteId;
                     }
                     else
                     {
@@ -224,8 +303,10 @@ namespace Controller
                         f.phones.DataSource = Repository.GetContactePhones(contacteId);
                         f.mails.DataSource = Repository.GetContacteEmails(contacteId);
 
-                        lastTelefonDatasource = Repository.GetContactePhones(contacteId);
-                        lastEmailDatasource = Repository.GetContacteEmails(contacteId);
+                        lastApiCallEmails = "getcontacteemails";
+                        lastApiCallTelefons = "getcontactephones";
+                        lastContacteId = contacteId;
+
                     } else
                     {
                         MessageBox.Show("Select a contacte to insert an email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -252,8 +333,9 @@ namespace Controller
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByName(name);
 
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetContactesByName(name));
+                    lastApiCallDatagrid = "getcontactesbyname";
+                    lastNameSearch = name;
+
                     break;
                 case "searchNameTotRB":
                     cleanSecondaryGrids();
@@ -278,28 +360,31 @@ namespace Controller
                     f.phones.DataSource = ph;
                     f.mails.DataSource = em;
 
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(c);
-                    lastTelefonDatasource = ph;
-                    lastEmailDatasource = em;
+                    lastApiCallDatagrid = "getcontactestotbyname";
+                    lastApiCallTelefons = "getcontactestotbyname";
+                    lastApiCallEmails = "getcontactestotbyname";
+                    lastNameTotSearch = nameTot;
+
                     break;
                 case "searchMailRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByEmail(email);
                     f.mails.DataSource = Repository.GetEmailsByEmail(email);
 
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetContactesByEmail(email));
-                    lastEmailDatasource = Repository.GetEmailsByEmail(email);
+                    lastApiCallDatagrid = "getcontactesbyemail";
+                    lastApiCallEmails = "getemailsbyemail";
+                    lastEmailSearch = email;
+
                     break;
                 case "searchTlfRB":
                     cleanSecondaryGrids();
                     f.dataGrid.DataSource = Repository.GetContactesByPhone(tlf);
                     f.phones.DataSource = Repository.GetPhonesByPhone(tlf);
 
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetContactesByPhone(tlf));
-                    lastTelefonDatasource = Repository.GetPhonesByPhone(tlf);
+                    lastApiCallDatagrid = "getcontactesbyphone";
+                    lastApiCallEmails = "getphonesbyphone";
+                    lastTelSearch = tlf;
+
                     break;
                 default:
                     Console.WriteLine("error");
@@ -322,24 +407,19 @@ namespace Controller
                     Repository.ModifyContacte(id, attr1, attr2);
                     alertChanges();
                     f.dataGrid.DataSource = Repository.GetContactesTot();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
+                    lastApiCallDatagrid = "getcontactestot";
                     break;
                 case "telefonsRB":
                     Repository.ModifyTelefon(id, attr1, attr2);
                     alertChanges();
                     f.dataGrid.DataSource = Repository.GetTelefons();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetTelefons());
+                    lastApiCallDatagrid = "gettelefons";
                     break;
                 case "emailsRB":
                     Repository.ModifyEmail(id, attr1, attr2);
                     alertChanges();
                     f.dataGrid.DataSource = Repository.GetEmails();
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetEmails());
+                    lastApiCallDatagrid = "getemails";
                     break;
                 default:
                     Console.WriteLine("error");
@@ -361,25 +441,19 @@ namespace Controller
                     Repository.DeleteContacte(id);
                     alertChanges();
                     f.dataGrid.DataSource = Repository.GetContactesTot();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
+                    lastApiCallDatagrid = "getcontactestot";
                     break;
                 case "telefonsRB":
                     Repository.DeleteTelefon(id);
                     alertChanges();
                     f.dataGrid.DataSource = Repository.GetTelefons();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetTelefons());
+                    lastApiCallDatagrid = "gettelefons";
                     break;
                 case "emailsRB":
                     Repository.DeleteEmail(id);
                     alertChanges();
                     f.dataGrid.DataSource = Repository.GetEmails();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetEmails());
+                    lastApiCallDatagrid = "getemails";
                     break;
                 default:
                     Console.WriteLine("error");
@@ -397,8 +471,9 @@ namespace Controller
                 f.phones.DataSource = Repository.GetContactePhones(id);
                 f.mails.DataSource = Repository.GetContacteEmails(id);
 
-                lastTelefonDatasource = Repository.GetContactePhones(id);
-                lastEmailDatasource = Repository.GetContacteEmails(id);
+                lastApiCallEmails = "getcontacteemails";
+                lastApiCallTelefons = "getcontactephones";
+                lastContacteId = id;
             } else{
                 cleanSecondaryGrids();
             }
@@ -428,21 +503,15 @@ namespace Controller
             {
                 case "contactesRB":
                     f.dataGrid.DataSource = Repository.GetContactesTot();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetContactesTot());
+                    lastApiCallDatagrid = "getcontactestot";
                     break;
                 case "telefonsRB":
                     f.dataGrid.DataSource = Repository.GetTelefons();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetTelefons());
+                    lastApiCallDatagrid = "gettelefons";
                     break;
                 case "emailsRB":
                     f.dataGrid.DataSource = Repository.GetEmails();
-
-                    lastDatagridDatasource.Clear();
-                    lastDatagridDatasource.AddRange(Repository.GetEmails());
+                    lastApiCallDatagrid = "getemails";
                     break;
                 default:
                     Console.WriteLine("error");
