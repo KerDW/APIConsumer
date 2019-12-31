@@ -128,6 +128,9 @@ namespace Controller
                 case "getphonesbyphone":
                     f.phones.DataSource = Repository.GetPhonesByPhone(lastTelSearch);
                     break;
+                case "null":
+                    f.phones.DataSource = null;
+                    break;
                 default:
                     Console.WriteLine("error");
                     break;
@@ -150,6 +153,9 @@ namespace Controller
                     break;
                 case "getemailsbyemail":
                     f.mails.DataSource = Repository.GetEmailsByEmail(lastEmailSearch);
+                    break;
+                case "null":
+                    f.mails.DataSource = null;
                     break;
                 default:
                     Console.WriteLine("error");
