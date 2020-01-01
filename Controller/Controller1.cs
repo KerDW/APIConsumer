@@ -401,70 +401,75 @@ namespace Controller
 
         private void modifyGridItem(object sender, EventArgs e)
         {
-            String grid_table = f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
-            // f.dataGrid.CurrentCell = f.dataGrid[0, 0];
-            int currentIndex = f.dataGrid.CurrentCell.RowIndex;
-            int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
-            String attr1 = f.attr1.Text.ToString();
-            String attr2 = f.attr2.Text.ToString();
-
-            switch (grid_table)
+            if (f.dataGrid.Rows.Count != 0)
             {
-                case "contactesRB":
-                    Repository.ModifyContacte(id, attr1, attr2);
-                    alertChanges();
-                    f.dataGrid.DataSource = Repository.GetContactesTot();
-                    lastApiCallDatagrid = "getcontactestot";
-                    break;
-                case "telefonsRB":
-                    Repository.ModifyTelefon(id, attr1, attr2);
-                    alertChanges();
-                    f.dataGrid.DataSource = Repository.GetTelefons();
-                    lastApiCallDatagrid = "gettelefons";
-                    break;
-                case "emailsRB":
-                    Repository.ModifyEmail(id, attr1, attr2);
-                    alertChanges();
-                    f.dataGrid.DataSource = Repository.GetEmails();
-                    lastApiCallDatagrid = "getemails";
-                    break;
-                default:
-                    Console.WriteLine("error");
-                    break;
+                String grid_table = f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
+                // f.dataGrid.CurrentCell = f.dataGrid[0, 0];
+                int currentIndex = f.dataGrid.CurrentCell.RowIndex;
+                int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+                String attr1 = f.attr1.Text.ToString();
+                String attr2 = f.attr2.Text.ToString();
+
+                switch (grid_table)
+                {
+                    case "contactesRB":
+                        Repository.ModifyContacte(id, attr1, attr2);
+                        alertChanges();
+                        f.dataGrid.DataSource = Repository.GetContactesTot();
+                        lastApiCallDatagrid = "getcontactestot";
+                        break;
+                    case "telefonsRB":
+                        Repository.ModifyTelefon(id, attr1, attr2);
+                        alertChanges();
+                        f.dataGrid.DataSource = Repository.GetTelefons();
+                        lastApiCallDatagrid = "gettelefons";
+                        break;
+                    case "emailsRB":
+                        Repository.ModifyEmail(id, attr1, attr2);
+                        alertChanges();
+                        f.dataGrid.DataSource = Repository.GetEmails();
+                        lastApiCallDatagrid = "getemails";
+                        break;
+                    default:
+                        Console.WriteLine("error");
+                        break;
+                }
+                f.dataGrid.CurrentCell = f.dataGrid.Rows[currentIndex].Cells[0];
+                f.dataGrid.Rows[currentIndex].Selected = true;
             }
-            f.dataGrid.CurrentCell = f.dataGrid.Rows[currentIndex].Cells[0];
-            f.dataGrid.Rows[currentIndex].Selected = true;
-            assignAttrValues();
         }
 
         private void removeGridItem(object sender, EventArgs e)
         {
-            String grid_table = f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
-            int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
-
-            switch (grid_table)
+            if (f.dataGrid.Rows.Count != 0)
             {
-                case "contactesRB":
-                    Repository.DeleteContacte(id);
-                    alertChanges();
-                    f.dataGrid.DataSource = Repository.GetContactesTot();
-                    lastApiCallDatagrid = "getcontactestot";
-                    break;
-                case "telefonsRB":
-                    Repository.DeleteTelefon(id);
-                    alertChanges();
-                    f.dataGrid.DataSource = Repository.GetTelefons();
-                    lastApiCallDatagrid = "gettelefons";
-                    break;
-                case "emailsRB":
-                    Repository.DeleteEmail(id);
-                    alertChanges();
-                    f.dataGrid.DataSource = Repository.GetEmails();
-                    lastApiCallDatagrid = "getemails";
-                    break;
-                default:
-                    Console.WriteLine("error");
-                    break; 
+                String grid_table = f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name;
+                int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+
+                switch (grid_table)
+                {
+                    case "contactesRB":
+                        Repository.DeleteContacte(id);
+                        alertChanges();
+                        f.dataGrid.DataSource = Repository.GetContactesTot();
+                        lastApiCallDatagrid = "getcontactestot";
+                        break;
+                    case "telefonsRB":
+                        Repository.DeleteTelefon(id);
+                        alertChanges();
+                        f.dataGrid.DataSource = Repository.GetTelefons();
+                        lastApiCallDatagrid = "gettelefons";
+                        break;
+                    case "emailsRB":
+                        Repository.DeleteEmail(id);
+                        alertChanges();
+                        f.dataGrid.DataSource = Repository.GetEmails();
+                        lastApiCallDatagrid = "getemails";
+                        break;
+                    default:
+                        Console.WriteLine("error");
+                        break;
+                }
             }
         }
 
