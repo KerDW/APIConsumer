@@ -86,7 +86,12 @@ namespace Controller
 
         private void insertValues(object sender, EventArgs e)
         {
-            int id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+            if (!f.insertContacteRB.Checked && f.dataGrid.Rows.Count == 0)
+            {
+                return;
+            }
+
+            int id;
 
             string field_1 = f.insert_field_1.Text.ToString();
             string field_2 = f.insert_field_2.Text.ToString();
@@ -101,7 +106,8 @@ namespace Controller
 
                     break;
                 case "insertTelefonRB":
-                    if(f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
+                    id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
+                    if (f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
                     {
                         Repository.InsertTelefon(id, field_1, field_2);
 
@@ -116,6 +122,7 @@ namespace Controller
                     }
                     break;
                 case "insertEmailRB":
+                    id = int.Parse(f.dataGrid.CurrentRow.Cells[0].FormattedValue.ToString());
                     if (f.sorter.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Name.Equals("contactesRB"))
                     {
                         Repository.InsertEmail(id, field_1, field_2);
